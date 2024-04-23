@@ -1,0 +1,13 @@
+@startuml
+class Modelo.VO.Admin
+class Modelo.VO.Cita
+class Modelo.VO.Cliente
+class Modelo.VO.Mascota
+class Modelo.VO.Persona
+class Modelo.VO.Veterinario
+class java.time.LocalDate
+class java.util.ArrayList
+Modelo.VO.Admin --|> Modelo.VO.Persona
+Modelo.VO.Cliente --|> Modelo.VO.Persona
+Modelo.VO.Veterinario --|> Modelo.VO.Persona
+@enduml
