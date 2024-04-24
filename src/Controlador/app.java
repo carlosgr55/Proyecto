@@ -8,7 +8,6 @@ public class app {
 
     public static void main(String[] args) {
         ControladorInicioSesion.mostrarVentana();
-        System.out.println("HOLLIIIIS");
-        System.out.println("POLETH");
+        
     }
 }
