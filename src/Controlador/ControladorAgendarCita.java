@@ -8,6 +8,7 @@ import Modelo.VO.Veterinario;
 import Vista.VistaAgendarCita;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import javax.swing.plaf.metal.MetalIconFactory;
 
 public class ControladorAgendarCita {
 
@@ -24,18 +25,16 @@ public class ControladorAgendarCita {
         ControladorAgendarCita.daoVet = daoVet;
     }
 
-    
-    
-    public static daoVeterinarios getDaoVets(){
+    public static daoVeterinarios getDaoVets() {
         return daoVet;
     }
-    
+
     public static void mostrarVentanda() {
         vistaAgendar.setVisible(true);
         evento();
     }
-    
-    public static void modificarVentana(Cita cita){
+
+    public static void modificarVentana(Cita cita) {
         vistaAgendar.setVisible(true);
         String tipo = cita.getTipo();
         String mascota = cita.getNomMascota();
@@ -43,7 +42,7 @@ public class ControladorAgendarCita {
         vistaAgendar.getComb_tipo().setSelectedItem(tipo);
         vistaAgendar.getTxt_nomMascota().setText(mascota);
         evento();
-        vistaAgendar.getCombo_fechas().setSelectedItem(fecha);
+        //vistaAgendar.getCombo_fechas().setSelectedItem(fecha);
     }
 
     public static void evento() {
@@ -77,11 +76,12 @@ public class ControladorAgendarCita {
     public static Veterinario getVeterinario() {
         Veterinario vet = null;
         String especialidad = getEspecialidad();
-        LocalDateTime hora = LocalDateTime.parse((String) vistaAgendar.getCombo_fechas().getSelectedItem());
+        //LocalDateTime hora = LocalDateTime.parse((String) vistaAgendar.getCombo_fechas().getSelectedItem());
+        String hora = (String)vistaAgendar.getSelecFecha().getCombo_fecha().getSelectedItem();
 
         for (Veterinario vetAux : daoVet.getListaVet()) {
 
-            boolean fechaDisponible = vetAux.getDisponibilidad().contains(hora);
+            boolean fechaDisponible = vetAux.getHorasDisponibles().contains(hora);
             boolean especialidadCorrecta = vetAux.getEspecialidad().contains(especialidad);
 
             if (fechaDisponible && especialidadCorrecta) {
@@ -112,13 +112,13 @@ public class ControladorAgendarCita {
         return especialidad;
     }
 
-    public static Cita crearCita(){
+    public static Cita crearCita() {
         Cita cita;
         String id = ""; //Para actualizar
         Veterinario vet = getVeterinario();
         Cliente cliente = ControladorMenuInicio.getClienteActual();
         String nomMascota = vistaAgendar.getTxt_nomMascota().getText();
-        LocalDateTime fecha = LocalDateTime.parse((String) vistaAgendar.getCombo_fechas().getSelectedItem());
+        LocalDateTime fecha = vistaAgendar.getSelecFecha().getFecha().fechaHora;
         String tipo = (String) vistaAgendar.getComb_tipo().getSelectedItem();
         cita = new Cita(id, vet, cliente, nomMascota, fecha, tipo);
         daoVet.quitarHoras(fecha, vet);
@@ -126,48 +126,48 @@ public class ControladorAgendarCita {
         return cita;
     }
 
-    public static void quitarHoras(Cita cita){
-        
+    public static void quitarHoras(Cita cita) {
+
     }
-    
-    
+
     public static void revisionSelec() {
         limpiarCombo();
         ArrayList<Veterinario> listaVetsAptos = logicaVeterinario.espValida("General");
-        ArrayList<String> horasDisponibles = logicaVeterinario.getDisponibilidad(listaVetsAptos);
-        for (String hora : horasDisponibles) {
-            vistaAgendar.getCombo_fechas().addItem(hora);
-        }
-        vistaAgendar.getCombo_fechas().setEnabled(true);
+        ArrayList<String> horas = getHorasDisp(listaVetsAptos);
+        vistaAgendar.getSelecFecha().popularCombo(horas);
 
     }
 
     public static void esterilSelec() {
         limpiarCombo();
         ArrayList<Veterinario> listaVetsAptos = logicaVeterinario.espValida("Cirujana");
-        ArrayList<String> horasDisponibles = logicaVeterinario.getDisponibilidad(listaVetsAptos);
-        for (String hora : horasDisponibles) {
-            vistaAgendar.getCombo_fechas().addItem(hora);
-        }
-        vistaAgendar.getCombo_fechas().setEnabled(true);
+        ArrayList<String> horas = getHorasDisp(listaVetsAptos);
+        vistaAgendar.getSelecFecha().popularCombo(horas);
 
     }
 
     public static void esteticoSelec() {
-        limpiarCombo();
         ArrayList<Veterinario> listaVetsAptos = logicaVeterinario.espValida("Estetica");
-        ArrayList<String> horasDisponibles = logicaVeterinario.getDisponibilidad(listaVetsAptos);
-        for (String hora : horasDisponibles) {
-            vistaAgendar.getCombo_fechas().addItem(hora);
-        }
-        vistaAgendar.getCombo_fechas().setEnabled(true);
+        ArrayList<String> horas = getHorasDisp(listaVetsAptos);
+        vistaAgendar.getSelecFecha().popularCombo(horas);
+    }
 
+    public static ArrayList<String> getHorasDisp(ArrayList<Veterinario> listVetsAptos) {
+        ArrayList<String> horas = new ArrayList<>();
+        for (Veterinario vet : listVetsAptos) {
+            for (String hora : vet.getHorasDisponibles()) {
+                if (!horas.contains(hora)) {
+                    horas.add(hora);
+                }
+            }
+        }
+        return horas;
     }
 
     public static void limpiarCombo() {
-        int total = vistaAgendar.getCombo_fechas().getItemCount();
+        int total = vistaAgendar.getSelecFecha().getCombo_fecha().getItemCount();
         for (int i = 0; i < total; i++) {
-            vistaAgendar.getCombo_fechas().removeItemAt(0);
+            vistaAgendar.getSelecFecha().getCombo_fecha().removeItemAt(0);
         }
     }
 

@@ -3,6 +3,8 @@ package Vista;
 import Controlador.ControladorAgendarCita;
 import Controlador.ControladorDetalleCita;
 import Controlador.ControladorMenuInicio;
+import Fecha.Fecha;
+import Modelo.Componentes.SelecFecha;
 import Modelo.VO.Cita;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -58,9 +60,9 @@ public class VistaAgendarCita extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         comb_tipo = new javax.swing.JComboBox<>();
         comb_estetico = new javax.swing.JComboBox<>();
-        combo_fechas = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         txt_nomMascota = new javax.swing.JTextField();
+        selecFecha = new Modelo.Componentes.SelecFecha();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -189,16 +191,6 @@ public class VistaAgendarCita extends javax.swing.JDialog {
             }
         });
 
-        combo_fechas.setEnabled(false);
-        combo_fechas.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                combo_fechasFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                combo_fechasFocusLost(evt);
-            }
-        });
-
         jLabel3.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 204));
         jLabel3.setText("Nombre de tu mascota");
@@ -225,6 +217,8 @@ public class VistaAgendarCita extends javax.swing.JDialog {
             }
         });
 
+        selecFecha.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -234,41 +228,49 @@ public class VistaAgendarCita extends javax.swing.JDialog {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(txt_nomMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(comb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lb_estetico)
                             .addComponent(comb_estetico, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(combo_fechas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(59, Short.MAX_VALUE))))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(120, Short.MAX_VALUE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(selecFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(txt_nomMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(lb_estetico)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comb_estetico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(combo_fechas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap(26, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(lb_estetico)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comb_estetico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(selecFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addGap(22, 22, 22)
                 .addComponent(txt_nomMascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
@@ -293,100 +295,6 @@ public class VistaAgendarCita extends javax.swing.JDialog {
         ControladorMenuInicio.setVisible(true);
     }//GEN-LAST:event_btn_regresarActionPerformed
 
-    private void comb_tipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comb_tipoItemStateChanged
-        // TODO add your handling code here:
-        ControladorAgendarCita.evento();
-    }//GEN-LAST:event_comb_tipoItemStateChanged
-
-    private void comb_tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comb_tipoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comb_tipoActionPerformed
-
-    private void comb_tipoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comb_tipoFocusGained
-        // TODO add your handling code here:
-        comb_tipo.setBackground(new Color(102,204,255));
-    }//GEN-LAST:event_comb_tipoFocusGained
-
-    private void comb_tipoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comb_tipoFocusLost
-        // TODO add your handling code here:
-        comb_tipo.setBackground(new Color(204,204,204));
-    }//GEN-LAST:event_comb_tipoFocusLost
-
-    private void txt_nomMascotaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nomMascotaFocusGained
-        // TODO add your handling code here:
-        txt_nomMascota.setBackground(new Color(102,204,255));
-    }//GEN-LAST:event_txt_nomMascotaFocusGained
-
-    private void txt_nomMascotaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nomMascotaFocusLost
-        // TODO add your handling code here:
-        txt_nomMascota.setBackground(new Color(204,204,204));
-    }//GEN-LAST:event_txt_nomMascotaFocusLost
-
-    private void comb_esteticoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comb_esteticoFocusGained
-        // TODO add your handling code here:
-        comb_estetico.setBackground(new Color(102,204,255));
-        
-    }//GEN-LAST:event_comb_esteticoFocusGained
-
-    private void comb_esteticoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comb_esteticoFocusLost
-        // TODO add your handling code here:
-        comb_estetico.setBackground(new Color(204,204,204));
-    }//GEN-LAST:event_comb_esteticoFocusLost
-
-    private void combo_fechasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_combo_fechasFocusGained
-        // TODO add your handling code here:
-        combo_fechas.setBackground(new Color(102,204,255));
-    }//GEN-LAST:event_combo_fechasFocusGained
-
-    private void combo_fechasFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_combo_fechasFocusLost
-        // TODO add your handling code here:
-        combo_fechas.setBackground(new Color(204,204,204));
-    }//GEN-LAST:event_combo_fechasFocusLost
-
-    private void txt_nomMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomMascotaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nomMascotaActionPerformed
-
-    private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
-        // TODO add your handling code here:
-           jLabel4.setForeground(Color.GREEN);
-    }//GEN-LAST:event_jLabel4MouseEntered
-
-    private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
-        // TODO add your handling code here:
-        jLabel4.setForeground(new Color(0,153,204));
-    }//GEN-LAST:event_jLabel4MouseExited
-
-    private void lb_esteticoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_esteticoMouseEntered
-        // TODO add your handling code here:
-        lb_estetico.setForeground(Color.GREEN);
-    }//GEN-LAST:event_lb_esteticoMouseEntered
-
-    private void lb_esteticoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_esteticoMouseExited
-        // TODO add your handling code here:
-        lb_estetico.setForeground(new Color(0,153,204));
-    }//GEN-LAST:event_lb_esteticoMouseExited
-
-    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
-        // TODO add your handling code here:
-        jLabel5.setForeground(Color.GREEN);
-    }//GEN-LAST:event_jLabel5MouseEntered
-
-    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
-        // TODO add your handling code here:
-        jLabel5.setForeground(new Color(0,153,204));
-    }//GEN-LAST:event_jLabel5MouseExited
-
-    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
-        // TODO add your handling code here:
-        jLabel3.setForeground(Color.GREEN);
-    }//GEN-LAST:event_jLabel3MouseEntered
-
-    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
-        // TODO add your handling code here:{
-        jLabel3.setForeground(new Color(0,153,204));
-    }//GEN-LAST:event_jLabel3MouseExited
-
     private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
         // TODO add your handling code here:
         jLabel1.setForeground(Color.PINK);
@@ -394,8 +302,93 @@ public class VistaAgendarCita extends javax.swing.JDialog {
 
     private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
         // TODO add your handling code here:
-        jLabel1.setForeground(new Color(0,153,204));
+        jLabel1.setForeground(new Color(0, 153, 204));
     }//GEN-LAST:event_jLabel1MouseExited
+
+    private void txt_nomMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomMascotaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nomMascotaActionPerformed
+
+    private void txt_nomMascotaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nomMascotaFocusLost
+        // TODO add your handling code here:
+        txt_nomMascota.setBackground(new Color(204, 204, 204));
+    }//GEN-LAST:event_txt_nomMascotaFocusLost
+
+    private void txt_nomMascotaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nomMascotaFocusGained
+        // TODO add your handling code here:
+        txt_nomMascota.setBackground(new Color(102, 204, 255));
+    }//GEN-LAST:event_txt_nomMascotaFocusGained
+
+    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
+        // TODO add your handling code here:{
+        jLabel3.setForeground(new Color(0, 153, 204));
+    }//GEN-LAST:event_jLabel3MouseExited
+
+
+    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+        // TODO add your handling code here:
+        jLabel3.setForeground(Color.GREEN);
+    }//GEN-LAST:event_jLabel3MouseEntered
+
+    private void comb_esteticoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comb_esteticoFocusLost
+        // TODO add your handling code here:
+        comb_estetico.setBackground(new Color(204, 204, 204));
+    }//GEN-LAST:event_comb_esteticoFocusLost
+
+    private void comb_esteticoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comb_esteticoFocusGained
+        // TODO add your handling code here:
+        comb_estetico.setBackground(new Color(102, 204, 255));
+
+    }//GEN-LAST:event_comb_esteticoFocusGained
+
+    private void comb_tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comb_tipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comb_tipoActionPerformed
+
+    private void comb_tipoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comb_tipoFocusLost
+        // TODO add your handling code here:
+        comb_tipo.setBackground(new Color(204, 204, 204));
+    }//GEN-LAST:event_comb_tipoFocusLost
+
+    private void comb_tipoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comb_tipoFocusGained
+        // TODO add your handling code here:
+        comb_tipo.setBackground(new Color(102, 204, 255));
+    }//GEN-LAST:event_comb_tipoFocusGained
+
+    private void comb_tipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comb_tipoItemStateChanged
+        // TODO add your handling code here:
+        ControladorAgendarCita.evento();
+    }//GEN-LAST:event_comb_tipoItemStateChanged
+
+    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
+        // TODO add your handling code here:
+        jLabel5.setForeground(new Color(0, 153, 204));
+    }//GEN-LAST:event_jLabel5MouseExited
+
+    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
+        // TODO add your handling code here:
+        jLabel5.setForeground(Color.GREEN);
+    }//GEN-LAST:event_jLabel5MouseEntered
+
+    private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
+        // TODO add your handling code here:
+        jLabel4.setForeground(new Color(0, 153, 204));
+    }//GEN-LAST:event_jLabel4MouseExited
+
+    private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
+        // TODO add your handling code here:
+        jLabel4.setForeground(Color.GREEN);
+    }//GEN-LAST:event_jLabel4MouseEntered
+
+    private void lb_esteticoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_esteticoMouseExited
+        // TODO add your handling code here:
+        lb_estetico.setForeground(new Color(0, 153, 204));
+    }//GEN-LAST:event_lb_esteticoMouseExited
+
+    private void lb_esteticoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_esteticoMouseEntered
+        // TODO add your handling code here:
+        lb_estetico.setForeground(Color.GREEN);
+    }//GEN-LAST:event_lb_esteticoMouseEntered
 
     public JTextField getTxt_nomMascota() {
         return txt_nomMascota;
@@ -405,8 +398,6 @@ public class VistaAgendarCita extends javax.swing.JDialog {
         this.txt_nomMascota = txt_nomMascota;
     }
 
-    
-    
     /**
      * @param args the command line arguments
      */
@@ -452,6 +443,14 @@ public class VistaAgendarCita extends javax.swing.JDialog {
         });
     }
 
+    public SelecFecha getSelecFecha() {
+        return selecFecha;
+    }
+
+    public void setSelecFecha(SelecFecha selecFecha) {
+        this.selecFecha = selecFecha;
+    }
+
     public JLabel getLb_estetico() {
         return lb_estetico;
     }
@@ -492,14 +491,6 @@ public class VistaAgendarCita extends javax.swing.JDialog {
         this.comb_tipo = comb_tipo;
     }
 
-    public JComboBox<String> getCombo_fechas() {
-        return combo_fechas;
-    }
-
-    public void setCombo_fechas(JComboBox<String> combo_fechas) {
-        this.combo_fechas = combo_fechas;
-    }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_regresar;
@@ -507,7 +498,6 @@ public class VistaAgendarCita extends javax.swing.JDialog {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> comb_estetico;
     private javax.swing.JComboBox<String> comb_tipo;
-    private javax.swing.JComboBox<String> combo_fechas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -518,6 +508,7 @@ public class VistaAgendarCita extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lb_estetico;
+    private Modelo.Componentes.SelecFecha selecFecha;
     private javax.swing.JTextField txt_nomMascota;
     // End of variables declaration//GEN-END:variables
 }

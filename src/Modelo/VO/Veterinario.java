@@ -12,6 +12,7 @@ public class Veterinario extends Persona {
     private String usuario;
     private String password;
     private ArrayList<LocalDateTime> disponibilidad = new ArrayList<>();
+    private ArrayList<String> horasDisponibles = new ArrayList<>();
 
     public Veterinario(String cedula, double sueldo, String usuario, String password, String nombre, String apellido, String telefono, String correo) {
         super(nombre, apellido, telefono, correo);
@@ -19,7 +20,11 @@ public class Veterinario extends Persona {
         this.sueldo = sueldo;
         this.usuario = usuario;
         this.password = password;
+        cargarDisp();
     }
+    
+    
+    
 
     public Veterinario() {
         super();
@@ -28,6 +33,30 @@ public class Veterinario extends Persona {
         usuario = "";
         password = "";
         especialidad = null;
+        cargarDisp();
+    }
+
+    public ArrayList<String> getHorasDisponibles() {
+        return horasDisponibles;
+    }
+
+    public void setHorasDisponibles(ArrayList<String> horasDisponibles) {
+        this.horasDisponibles = horasDisponibles;
+    }
+    
+    
+
+    private void cargarDisp() {
+        this.horasDisponibles.add("09:00");
+        this.horasDisponibles.add("10:00");
+        this.horasDisponibles.add("11:00");
+        this.horasDisponibles.add("12:00");
+        this.horasDisponibles.add("13:00");
+        this.horasDisponibles.add("14:00");
+        this.horasDisponibles.add("15:00");
+        this.horasDisponibles.add("16:00");
+        this.horasDisponibles.add("17:00");
+        this.horasDisponibles.add("18:00");
     }
 
     public void addHora(LocalDateTime hora) {
@@ -38,10 +67,11 @@ public class Veterinario extends Persona {
         this.disponibilidad.remove(hora);
     }
 
-    public void addEspecialidad(String esp){
+    public void addEspecialidad(String esp) {
         this.especialidad.add(esp);
     }
-    public void quitarEspecialidad(String esp){
+
+    public void quitarEspecialidad(String esp) {
         this.especialidad.remove(esp);
     }
 
@@ -52,7 +82,7 @@ public class Veterinario extends Persona {
     public void setEspecialidad(ArrayList<String> especialidad) {
         this.especialidad = especialidad;
     }
-    
+
     public ArrayList<LocalDateTime> getDisponibilidad() {
         return disponibilidad;
     }
@@ -97,7 +127,5 @@ public class Veterinario extends Persona {
     public String toString() {
         return "Veterinario{" + "cedula=" + cedula + ", especialidad=" + especialidad + ", sueldo=" + sueldo + ", usuario=" + usuario + ", password=" + password + ", disponibilidad=" + disponibilidad + '}';
     }
-    
-    
 
 }

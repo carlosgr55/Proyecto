@@ -6,8 +6,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class LogicaVeterinario {
-    
-     daoVeterinarios daoVet = new daoVeterinarios();
+
+    daoVeterinarios daoVet = new daoVeterinarios();
 
     public daoVeterinarios getDaoVet() {
         return daoVet;
@@ -16,12 +16,8 @@ public class LogicaVeterinario {
     public void setDaoVet(daoVeterinarios daoVet) {
         this.daoVet = daoVet;
     }
-    
-     
-     
-    
-     
-    public ArrayList<String> getDisponibilidad(ArrayList<Veterinario> lista){
+
+    public ArrayList<String> getDisponibilidad(ArrayList<Veterinario> lista) {
         ArrayList<String> horas = new ArrayList<>();
         for (Veterinario veterinario : lista) {
             for (LocalDateTime fecha : veterinario.getDisponibilidad()) {
@@ -31,20 +27,18 @@ public class LogicaVeterinario {
         }
         return horas;
     }
-    
-    public ArrayList<Veterinario> espValida(String especialidad){
+
+    public ArrayList<Veterinario> espValida(String especialidad) {
         ArrayList<Veterinario> especiales = new ArrayList<>();
         int i = 0;
-       for(Veterinario vet : daoVet.getListaVet()){
-           for(String esp : vet.getEspecialidad()){
-               if(esp.equals(especialidad))
-                   especiales.add(vet);
-           }
-       }
-       return especiales;
+        for (Veterinario vet : daoVet.getListaVet()) {
+            for (String esp : vet.getEspecialidad()) {
+                if (esp.equals(especialidad)) {
+                    especiales.add(vet);
+                }
+            }
+        }
+        return especiales;
     }
-    
-    
-    
 
 }

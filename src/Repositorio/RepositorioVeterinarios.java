@@ -13,7 +13,8 @@ public class RepositorioVeterinarios {
     public RepositorioVeterinarios() {
         this.cargarDatos();
 
-        //Disponibilidad veterinario uno
+        //Codigo viejo
+        /* //Disponibilidad veterinario uno
         this.addHora(0, LocalDateTime.parse("2024-04-10T10:00:00"));
         this.addHora(0, LocalDateTime.parse("2024-04-10T11:00:00"));
         this.addHora(0, LocalDateTime.parse("2024-04-10T13:30:00"));
@@ -29,7 +30,7 @@ public class RepositorioVeterinarios {
         this.addHora(3, LocalDateTime.parse("2024-04-10T10:00:00"));
         this.addHora(3, LocalDateTime.parse("2024-04-11T11:00:00"));
         this.addHora(3, LocalDateTime.parse("2024-04-12T13:30:00"));
-
+         */
         //Especialidades veterinario uno
         this.addEspecialidad(0, "Estetica");
         //Especialidades veterinario dos
@@ -62,15 +63,14 @@ public class RepositorioVeterinarios {
         this.lista = lista;
     }
 
-        
     public void addHora(int index, LocalDateTime hora) {
         lista.get(index).addHora(hora);
     }
-    
-    public void quitarHora(LocalDateTime hora, Veterinario vet){
-       
-      lista.get(lista.indexOf(vet)).quitarHora(hora);
-        
+
+    public void quitarHora(LocalDateTime hora, Veterinario vet) {
+
+        lista.get(lista.indexOf(vet)).quitarHora(hora);
+
     }
 
     public void addEspecialidad(int index, String especialidad) {
@@ -90,13 +90,12 @@ public class RepositorioVeterinarios {
     }
 
     public int getIndice(Veterinario vet) {
-       return lista.indexOf(vet);
+        return lista.indexOf(vet);
     }
 
     public ArrayList<String> getEspecialidades(Veterinario vet) {
         int index = getIndice(vet);
         return lista.get(index).getEspecialidad();
     }
-    
 
 }
