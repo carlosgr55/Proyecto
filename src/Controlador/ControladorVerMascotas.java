@@ -5,6 +5,7 @@ import Modelo.VO.Mascota;
 import Vista.VistaAgendarCita;
 import Vista.VistaMascotas;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class ControladorVerMascotas {
 
@@ -17,15 +18,38 @@ public class ControladorVerMascotas {
         vistaMascota.setVisible(true);
         clienteActual = ControladorMenuInicio.getClienteActual();
         listaMascota = clienteActual.getMascotas();
-        popularCombo();
-        evento();
+        if (!listaVacia(listaMascota)) {
+            popularCombo();
+            evento();
+        } else {
+            ControladorMenuInicio.mostraVentana();
+            JOptionPane.showMessageDialog(null, "No hay mascotas que mostrar");
+            vistaMascota.setVisible(false);
+            vistaMascota.dispose();
+        }
     }
 
     public static void eliminar() {
         Mascota mascota = getMascota((String) vistaMascota.getCombo_mascotas().getSelectedItem());
         ControladorConfimarEliminar.mostrarVentana(vistaMascota, true, mascota);
         boolean confirmo = ControladorConfimarEliminar.confirmacion;
-        System.out.println(confirmo);
+        if (confirmo) {
+            borrarMascota(mascota);
+            vistaMascota.setVisible(false);
+            vistaMascota.dispose();
+            mostrarVentana();
+        } else {
+
+        }
+    }
+
+    public static boolean listaVacia(ArrayList<Mascota> mascota) {
+        return mascota.isEmpty();
+    }
+
+    private static void borrarMascota(Mascota mascota) {
+        clienteActual.getMascotas().remove(mascota);
+        listaMascota.remove(mascota);
     }
 
     public static void popularCombo() {
@@ -115,7 +139,5 @@ public class ControladorVerMascotas {
         }
         return pet;
     }
-    
-    
 
 }

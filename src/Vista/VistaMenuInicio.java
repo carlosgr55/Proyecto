@@ -1,9 +1,12 @@
 package Vista;
 
+import Controlador.ControladorAgregarMascota;
 import Controlador.ControladorHistorial;
 import Controlador.ControladorMenuInicio;
 import Controlador.ControladorModificarCliente;
+import Controlador.ControladorRegistrarMascota;
 import Controlador.ControladorVerMascotas;
+import Modelo.VO.Cliente;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -52,6 +55,7 @@ public class VistaMenuInicio extends javax.swing.JDialog {
         btn_modificar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btn_mascotas = new javax.swing.JButton();
+        btn_agregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -204,6 +208,25 @@ public class VistaMenuInicio extends javax.swing.JDialog {
             }
         });
 
+        btn_agregar.setBackground(new java.awt.Color(255, 255, 255));
+        btn_agregar.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
+        btn_agregar.setForeground(new java.awt.Color(0, 102, 255));
+        btn_agregar.setText("Agregar mascota");
+        btn_agregar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btn_agregar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                btn_agregarFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                btn_agregarFocusLost(evt);
+            }
+        });
+        btn_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -224,7 +247,9 @@ public class VistaMenuInicio extends javax.swing.JDialog {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_mascotas, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btn_agregar)
+                                    .addComponent(btn_mascotas, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(49, 49, 49))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
@@ -241,7 +266,9 @@ public class VistaMenuInicio extends javax.swing.JDialog {
                     .addComponent(btn_agendar)
                     .addComponent(btn_mascotas))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(btn_ver)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_ver)
+                    .addComponent(btn_agregar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(btn_modificar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
@@ -352,6 +379,21 @@ public class VistaMenuInicio extends javax.swing.JDialog {
         ControladorVerMascotas.mostrarVentana();
     }//GEN-LAST:event_btn_mascotasActionPerformed
 
+    private void btn_agregarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_agregarFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_agregarFocusGained
+
+    private void btn_agregarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_agregarFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_agregarFocusLost
+
+    private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
+        // TODO add your handling code here:
+        ControladorAgregarMascota.mostrarVentana();
+        this.setVisible(false);
+
+    }//GEN-LAST:event_btn_agregarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -423,6 +465,7 @@ public class VistaMenuInicio extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agendar;
+    private javax.swing.JButton btn_agregar;
     private javax.swing.JButton btn_cerrar;
     private javax.swing.JButton btn_mascotas;
     private javax.swing.JButton btn_modificar;
