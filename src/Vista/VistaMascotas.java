@@ -4,8 +4,10 @@
  */
 package Vista;
 
+import Controlador.ControladorConfimarEliminar;
 import Controlador.ControladorMenuInicio;
 import Controlador.ControladorVerMascotas;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -143,7 +145,8 @@ public class VistaMascotas extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        combo_mascotas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        combo_mascotas.setEditable(true);
+        combo_mascotas.setSelectedIndex(-1);
         combo_mascotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combo_mascotasActionPerformed(evt);
@@ -199,11 +202,26 @@ public class VistaMascotas extends javax.swing.JDialog {
         });
 
         btn_modificar.setText("Modificar");
+        btn_modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_modificarActionPerformed(evt);
+            }
+        });
 
         btn_guardar.setText("Guardar");
         btn_guardar.setEnabled(false);
+        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarActionPerformed(evt);
+            }
+        });
 
         btn_eliminar.setText("Eliminar");
+        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -296,6 +314,22 @@ public class VistaMascotas extends javax.swing.JDialog {
         ControladorMenuInicio.mostraVentana();
     }//GEN-LAST:event_btn_regresarActionPerformed
 
+    private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
+        // TODO add your handling code here:
+        ControladorVerMascotas.modificar();
+    }//GEN-LAST:event_btn_modificarActionPerformed
+
+    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
+        // TODO add your handling code here:
+        ControladorVerMascotas.guardar();
+        
+    }//GEN-LAST:event_btn_guardarActionPerformed
+
+    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
+        // TODO add your handling code here:
+        ControladorVerMascotas.eliminar();
+    }//GEN-LAST:event_btn_eliminarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -336,6 +370,38 @@ public class VistaMascotas extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
+    }
+
+    public JButton getBtn_eliminar() {
+        return btn_eliminar;
+    }
+
+    public void setBtn_eliminar(JButton btn_eliminar) {
+        this.btn_eliminar = btn_eliminar;
+    }
+
+    public JButton getBtn_guardar() {
+        return btn_guardar;
+    }
+
+    public void setBtn_guardar(JButton btn_guardar) {
+        this.btn_guardar = btn_guardar;
+    }
+
+    public JButton getBtn_modificar() {
+        return btn_modificar;
+    }
+
+    public void setBtn_modificar(JButton btn_modificar) {
+        this.btn_modificar = btn_modificar;
+    }
+
+    public JButton getBtn_regresar() {
+        return btn_regresar;
+    }
+
+    public void setBtn_regresar(JButton btn_regresar) {
+        this.btn_regresar = btn_regresar;
     }
 
 
