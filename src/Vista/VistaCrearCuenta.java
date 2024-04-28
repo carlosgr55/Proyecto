@@ -2,6 +2,7 @@ package Vista;
 
 import Controlador.ControladorCrearCuenta;
 import Controlador.ControladorInicioSesion;
+import Controlador.ControladorRegistrarMascota;
 import Modelo.VO.Cliente;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -45,7 +46,7 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
         panel_btns = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         btn_regresar = new javax.swing.JButton();
-        btn_crear = new javax.swing.JButton();
+        btn_siguiente = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txt_nombre = new javax.swing.JTextField();
@@ -101,17 +102,17 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
         });
         panel_btns.add(btn_regresar);
 
-        btn_crear.setBackground(new java.awt.Color(255, 255, 255));
-        btn_crear.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
-        btn_crear.setForeground(new java.awt.Color(0, 0, 204));
-        btn_crear.setText("Crear");
-        btn_crear.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btn_crear.addActionListener(new java.awt.event.ActionListener() {
+        btn_siguiente.setBackground(new java.awt.Color(255, 255, 255));
+        btn_siguiente.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
+        btn_siguiente.setForeground(new java.awt.Color(0, 0, 204));
+        btn_siguiente.setText("Siguiente");
+        btn_siguiente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_siguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_crearActionPerformed(evt);
+                btn_siguienteActionPerformed(evt);
             }
         });
-        panel_btns.add(btn_crear);
+        panel_btns.add(btn_siguiente);
 
         getContentPane().add(panel_btns, java.awt.BorderLayout.PAGE_END);
 
@@ -197,7 +198,7 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
 
         jLabel5.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 153, 204));
-        jLabel5.setText("Conntaseña:");
+        jLabel5.setText("Contaseña:");
 
         txt_password.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -295,7 +296,7 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_celularActionPerformed
 
-    private void btn_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearActionPerformed
+    private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
         // TODO add your handling code here:
 
         Cliente nuevo = ControladorCrearCuenta.crearCliente();
@@ -308,13 +309,13 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
             txt_usuario.setText("");
             txt_password.setText("");
             this.setVisible(false);
-            ControladorInicioSesion.mostrarVentana();
+            ControladorRegistrarMascota.mostrarVentana();
+            ControladorRegistrarMascota.setCliente(nuevo);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "USUARIO YA EXISTE");
         }
-        ControladorCrearCuenta.mostrarClientes();
-    }//GEN-LAST:event_btn_crearActionPerformed
+    }//GEN-LAST:event_btn_siguienteActionPerformed
 
     private void txt_correoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_correoActionPerformed
         // TODO add your handling code here:
@@ -462,7 +463,7 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
     }
 
     public JButton getBtn_crear() {
-        return btn_crear;
+        return btn_siguiente;
     }
 
     public JTextField getTxt_usuario() {
@@ -474,7 +475,7 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
     }
 
     public void setBtn_crear(JButton btn_crear) {
-        this.btn_crear = btn_crear;
+        this.btn_siguiente = btn_crear;
     }
 
 
@@ -530,8 +531,8 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_crear;
     private javax.swing.JButton btn_regresar;
+    private javax.swing.JButton btn_siguiente;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -1,6 +1,7 @@
 package Repositorio;
 
 import Modelo.VO.Cliente;
+import Modelo.VO.Mascota;
 import java.util.ArrayList;
 
 public class RepositorioClientes {
@@ -42,6 +43,18 @@ public class RepositorioClientes {
         this.listaClientes.add(new Cliente("LDR", "BLDV", "Lana", "Del Rey", "654654654", "kdfljkljdslkj"));
         this.listaClientes.add(new Cliente("LG", "Chromatica", "Lady", "Gaga", "654654654", "kdfljkljdslkj"));
         this.listaClientes.add(new Cliente("", "", "Prueba", "Borrar", "61654321", "lgjklajflkjg"));
+        cargarMascotas();
+    }
+    
+    public void cargarMascotas(){
+        listaClientes.get(0).addMascota(new Mascota("El Mal Querer", "Perro", 'M'));
+        listaClientes.get(0).addMascota(new Mascota("Los Angeles", "Perro", 'M'));
+        listaClientes.get(1).addMascota(new Mascota("Ladron", "Gato", 'M'));
+        listaClientes.get(2).addMascota(new Mascota("Cola", "Ave", 'H'));
+        listaClientes.get(3).addMascota(new Mascota("Chromatica", "Perro", 'H'));
+        listaClientes.get(4).addMascota(new Mascota("Prueba", "Perro", 'H'));
+        listaClientes.get(3).addMascota(new Mascota("Honeymoon", "Gato", 'H'));
+        
     }
 
     public void mostrarClientes() {

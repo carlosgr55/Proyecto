@@ -82,7 +82,8 @@ public class SelecFecha extends javax.swing.JPanel {
             combo_fecha.addItem(hora);
         }
     }
-
+    
+    
     private Date minFecha() {
         LocalDateTime hoy = Fecha.diaActual();
         int dia = hoy.getDayOfYear() + 1;

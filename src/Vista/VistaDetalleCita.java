@@ -2,6 +2,7 @@ package Vista;
 
 import Controlador.ControladorDetalleCita;
 import java.awt.Color;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class VistaDetalleCita extends javax.swing.JDialog {
@@ -32,21 +33,21 @@ public class VistaDetalleCita extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        txt_cliente = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txt_mascota = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txt_motivo = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txt_fecha = new javax.swing.JTextField();
         btn_modificar = new javax.swing.JButton();
         btn_aceptar = new javax.swing.JButton();
         btn_cancelar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        txt_hora = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txt_vet = new javax.swing.JTextField();
+        txt_cliente = new javax.swing.JLabel();
+        txt_motivo = new javax.swing.JLabel();
+        txt_vet = new javax.swing.JLabel();
+        txt_mascota = new javax.swing.JLabel();
+        txt_fecha = new javax.swing.JLabel();
+        txt_hora = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -81,34 +82,9 @@ public class VistaDetalleCita extends javax.swing.JDialog {
             }
         });
 
-        txt_cliente.setEditable(false);
-        txt_cliente.setBackground(new java.awt.Color(244, 237, 237));
-        txt_cliente.setForeground(new java.awt.Color(51, 51, 255));
-        txt_cliente.setEnabled(false);
-        txt_cliente.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_clienteFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_clienteFocusLost(evt);
-            }
-        });
-
         jLabel6.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 153, 204));
         jLabel6.setText("MASCOTA:........  ");
-
-        txt_mascota.setEditable(false);
-        txt_mascota.setForeground(new java.awt.Color(51, 51, 255));
-        txt_mascota.setEnabled(false);
-        txt_mascota.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_mascotaFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_mascotaFocusLost(evt);
-            }
-        });
 
         jLabel7.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 153, 204));
@@ -122,33 +98,9 @@ public class VistaDetalleCita extends javax.swing.JDialog {
             }
         });
 
-        txt_motivo.setEditable(false);
-        txt_motivo.setForeground(new java.awt.Color(51, 51, 255));
-        txt_motivo.setEnabled(false);
-        txt_motivo.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_motivoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_motivoFocusLost(evt);
-            }
-        });
-
         jLabel8.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 153, 204));
         jLabel8.setText("FECHA ..............:");
-
-        txt_fecha.setEditable(false);
-        txt_fecha.setForeground(new java.awt.Color(51, 51, 255));
-        txt_fecha.setEnabled(false);
-        txt_fecha.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_fechaFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_fechaFocusLost(evt);
-            }
-        });
 
         btn_modificar.setBackground(new java.awt.Color(255, 255, 255));
         btn_modificar.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
@@ -184,70 +136,64 @@ public class VistaDetalleCita extends javax.swing.JDialog {
         jLabel2.setForeground(new java.awt.Color(0, 153, 204));
         jLabel2.setText("HORA .............. :");
 
-        txt_hora.setEditable(false);
-        txt_hora.setForeground(new java.awt.Color(51, 51, 255));
-        txt_hora.setEnabled(false);
-        txt_hora.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_horaFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_horaFocusLost(evt);
-            }
-        });
-
         jLabel3.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 204));
         jLabel3.setText("VETERINARIO.........:");
 
-        txt_vet.setEditable(false);
-        txt_vet.setForeground(new java.awt.Color(51, 51, 255));
-        txt_vet.setEnabled(false);
-        txt_vet.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_vetFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_vetFocusLost(evt);
-            }
-        });
+        txt_cliente.setText("DUENO DEL ANIMAL");
+
+        txt_motivo.setText("MOTIVO DE LA CITA");
+
+        txt_vet.setText("VETERINARIO");
+
+        txt_mascota.setText("MASCOTA");
+
+        txt_fecha.setText("FECHA");
+
+        txt_hora.setText("HORA");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(33, 33, 33)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(23, 23, 23))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(69, 69, 69))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txt_motivo, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                    .addComponent(txt_cliente)
-                    .addComponent(txt_vet))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(45, 45, 45)
-                        .addComponent(txt_hora, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_motivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(61, 61, 61))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addComponent(txt_vet)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)
-                        .addComponent(txt_mascota, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(108, Short.MAX_VALUE))
+                        .addGap(48, 48, 48))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(45, 45, 45)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_hora, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_mascota)
+                    .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(226, 226, 226))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_cancelar)
@@ -255,40 +201,40 @@ public class VistaDetalleCita extends javax.swing.JDialog {
                 .addComponent(btn_modificar)
                 .addGap(18, 18, 18)
                 .addComponent(btn_aceptar)
-                .addContainerGap(376, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addGap(60, 60, 60)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(txt_mascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_cliente)
+                    .addComponent(txt_mascota))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addComponent(jLabel9))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
+                        .addGap(50, 50, 50)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(txt_motivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
-                            .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txt_motivo)
+                            .addComponent(txt_fecha))))
                 .addGap(55, 55, 55)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txt_vet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
-                    .addComponent(txt_hora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                    .addComponent(txt_vet)
+                    .addComponent(txt_hora))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_modificar)
                     .addComponent(btn_aceptar)
                     .addComponent(btn_cancelar))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
@@ -297,10 +243,15 @@ public class VistaDetalleCita extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
+    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
         // TODO add your handling code here:
-        ControladorDetalleCita.modificar(ControladorDetalleCita.regresarCita());
-    }//GEN-LAST:event_btn_modificarActionPerformed
+        jLabel1.setForeground(Color.PINK);
+    }//GEN-LAST:event_jLabel1MouseEntered
+
+    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
+        // TODO add your handling code here:
+        jLabel1.setForeground(new Color(0, 153, 204));
+    }//GEN-LAST:event_jLabel1MouseExited
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
         // TODO add your handling code here:
@@ -312,70 +263,15 @@ public class VistaDetalleCita extends javax.swing.JDialog {
         ControladorDetalleCita.aceptar();
     }//GEN-LAST:event_btn_aceptarActionPerformed
 
-    private void txt_clienteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_clienteFocusGained
+    private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
         // TODO add your handling code here:
-        txt_cliente.setBackground(new Color(102,204,255));
-    }//GEN-LAST:event_txt_clienteFocusGained
+        ControladorDetalleCita.modificar(ControladorDetalleCita.regresarCita());
+    }//GEN-LAST:event_btn_modificarActionPerformed
 
-    private void txt_clienteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_clienteFocusLost
+    private void jLabel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseExited
         // TODO add your handling code here:
-        txt_cliente.setBackground(new Color(204,204,204));
-    }//GEN-LAST:event_txt_clienteFocusLost
-
-    private void txt_motivoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_motivoFocusGained
-        // TODO add your handling code here:
-        txt_motivo.setBackground(new Color(102,204,255));
-    }//GEN-LAST:event_txt_motivoFocusGained
-
-    private void txt_motivoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_motivoFocusLost
-        // TODO add your handling code here:
-        txt_motivo.setBackground(new Color(204,204,204));
-    }//GEN-LAST:event_txt_motivoFocusLost
-
-    private void txt_vetFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_vetFocusGained
-        // TODO add your handling code here:
-        txt_vet.setBackground(new Color(102,204,255));
-    }//GEN-LAST:event_txt_vetFocusGained
-
-    private void txt_vetFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_vetFocusLost
-        // TODO add your handling code here:
-        txt_vet.setBackground(new Color(204,204,204));
-    }//GEN-LAST:event_txt_vetFocusLost
-
-    private void txt_mascotaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_mascotaFocusGained
-        // TODO add your handling code here:
-        txt_mascota.setBackground(new Color(102,204,255));
-    }//GEN-LAST:event_txt_mascotaFocusGained
-
-    private void txt_mascotaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_mascotaFocusLost
-        // TODO add your handling code here:
-        txt_mascota.setBackground(new Color(204,204,204));
-    }//GEN-LAST:event_txt_mascotaFocusLost
-
-    private void txt_fechaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_fechaFocusGained
-        // TODO add your handling code here:
-        txt_fecha.setBackground(new Color(102,204,255));
-    }//GEN-LAST:event_txt_fechaFocusGained
-
-    private void txt_fechaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_fechaFocusLost
-        // TODO add your handling code here:
-        txt_fecha.setBackground(new Color(204,204,204));
-    }//GEN-LAST:event_txt_fechaFocusLost
-
-    private void txt_horaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_horaFocusGained
-        // TODO add your handling code here:
-        txt_hora.setBackground(new Color(102,204,255));
-    }//GEN-LAST:event_txt_horaFocusGained
-
-    private void txt_horaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_horaFocusLost
-        // TODO add your handling code here:
-        txt_hora.setBackground(new Color(204,204,204));
-    }//GEN-LAST:event_txt_horaFocusLost
-
-    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
-        // TODO add your handling code here:
-        jLabel5.setForeground(Color.GREEN);
-    }//GEN-LAST:event_jLabel5MouseEntered
+        jLabel7.setForeground(new Color(0, 153, 204));
+    }//GEN-LAST:event_jLabel7MouseExited
 
     private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
         // TODO add your handling code here:
@@ -383,79 +279,63 @@ public class VistaDetalleCita extends javax.swing.JDialog {
 
     private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
         // TODO add your handling code here:
-        jLabel5.setForeground(new Color(0,153,204));
+        jLabel5.setForeground(new Color(0, 153, 204));
     }//GEN-LAST:event_jLabel5MouseExited
 
-    private void jLabel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseExited
+    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
         // TODO add your handling code here:
-        jLabel7.setForeground(new Color(0,153,204));
-    }//GEN-LAST:event_jLabel7MouseExited
+        jLabel5.setForeground(Color.GREEN);
+    }//GEN-LAST:event_jLabel5MouseEntered
 
-    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
-        // TODO add your handling code here:
-        jLabel1.setForeground(Color.PINK);
-    }//GEN-LAST:event_jLabel1MouseEntered
-
-    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
-        // TODO add your handling code here:
-        jLabel1.setForeground(new Color(0,153,204));
-    }//GEN-LAST:event_jLabel1MouseExited
-
-    public JTextField getTxt_cliente() {
+    public JLabel getTxt_cliente() {
         return txt_cliente;
     }
 
-    public JTextField getTxt_vet() {
-        return txt_vet;
-    }
-
-    public void setTxt_vet(JTextField txt_vet) {
-        this.txt_vet = txt_vet;
-    }
-
-    
-    
-    public JTextField getTxt_hora() {
-        return txt_hora;
-    }
-
-    public void setTxt_hora(JTextField txt_hora) {
-        this.txt_hora = txt_hora;
-    }
-
-    
-    public void setTxt_cliente(JTextField txt_cliente) {
+    public void setTxt_cliente(JLabel txt_cliente) {
         this.txt_cliente = txt_cliente;
     }
 
-    public JTextField getTxt_fecha() {
+    public JLabel getTxt_fecha() {
         return txt_fecha;
     }
 
-    public void setTxt_fecha(JTextField txt_fecha) {
+    public void setTxt_fecha(JLabel txt_fecha) {
         this.txt_fecha = txt_fecha;
     }
 
-    public JTextField getTxt_mascota() {
-        return txt_mascota;
+    public JLabel getTxt_hora() {
+        return txt_hora;
     }
 
-    public void setTxt_mascota(JTextField txt_mascota) {
-        this.txt_mascota = txt_mascota;
+    public void setTxt_hora(JLabel txt_hora) {
+        this.txt_hora = txt_hora;
     }
 
-    public JTextField getTxt_motivo() {
+    public JLabel getTxt_motivo() {
         return txt_motivo;
     }
 
-    public void setTxt_motivo(JTextField txt_motivo) {
+    public void setTxt_motivo(JLabel txt_motivo) {
         this.txt_motivo = txt_motivo;
     }
 
+    public JLabel getTxt_mascota() {
+        return txt_mascota;
+    }
+
+    public void setTxt_mascota(JLabel txt_mascota) {
+        this.txt_mascota = txt_mascota;
+    }
     
-    
-    
-    
+
+    public JLabel getTxt_vet() {
+        return txt_vet;
+    }
+
+    public void setTxt_vet(JLabel txt_vet) {
+        this.txt_vet = txt_vet;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -543,11 +423,11 @@ public class VistaDetalleCita extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField txt_cliente;
-    private javax.swing.JTextField txt_fecha;
-    private javax.swing.JTextField txt_hora;
-    private javax.swing.JTextField txt_mascota;
-    private javax.swing.JTextField txt_motivo;
-    private javax.swing.JTextField txt_vet;
+    private javax.swing.JLabel txt_cliente;
+    private javax.swing.JLabel txt_fecha;
+    private javax.swing.JLabel txt_hora;
+    private javax.swing.JLabel txt_mascota;
+    private javax.swing.JLabel txt_motivo;
+    private javax.swing.JLabel txt_vet;
     // End of variables declaration//GEN-END:variables
 }

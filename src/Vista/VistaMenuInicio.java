@@ -3,6 +3,7 @@ package Vista;
 import Controlador.ControladorHistorial;
 import Controlador.ControladorMenuInicio;
 import Controlador.ControladorModificarCliente;
+import Controlador.ControladorVerMascotas;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -11,7 +12,6 @@ import javax.swing.JLabel;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-
 /**
  *
  * @author danii
@@ -25,8 +25,8 @@ public class VistaMenuInicio extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-    
-    public VistaMenuInicio(){
+
+    public VistaMenuInicio() {
         super();
         initComponents();
     }
@@ -51,6 +51,7 @@ public class VistaMenuInicio extends javax.swing.JDialog {
         btn_cerrar = new javax.swing.JButton();
         btn_modificar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btn_mascotas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -184,6 +185,25 @@ public class VistaMenuInicio extends javax.swing.JDialog {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Modelo/Assets/Inicio.jpeg"))); // NOI18N
 
+        btn_mascotas.setBackground(new java.awt.Color(255, 255, 255));
+        btn_mascotas.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
+        btn_mascotas.setForeground(new java.awt.Color(0, 102, 255));
+        btn_mascotas.setText("Mis mascotas");
+        btn_mascotas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btn_mascotas.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                btn_mascotasFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                btn_mascotasFocusLost(evt);
+            }
+        });
+        btn_mascotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_mascotasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -191,15 +211,21 @@ public class VistaMenuInicio extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap(103, Short.MAX_VALUE)
+                        .addContainerGap(107, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btn_cerrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_ver, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_agendar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(18, 24, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_mascotas, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lbl_mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -211,7 +237,9 @@ public class VistaMenuInicio extends javax.swing.JDialog {
                 .addGap(23, 23, 23)
                 .addComponent(lbl_mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(btn_agendar)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_agendar)
+                    .addComponent(btn_mascotas))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(btn_ver)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
@@ -254,61 +282,75 @@ public class VistaMenuInicio extends javax.swing.JDialog {
 
     private void btn_agendarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_agendarFocusGained
         // TODO add your handling code here:
-        btn_agendar.setBackground(new Color(102,204,255));
-        
+        btn_agendar.setBackground(new Color(102, 204, 255));
+
     }//GEN-LAST:event_btn_agendarFocusGained
 
     private void btn_agendarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_agendarFocusLost
         // TODO add your handling code here:
-        btn_agendar.setBackground(new Color(204,204,204));
+        btn_agendar.setBackground(new Color(204, 204, 204));
     }//GEN-LAST:event_btn_agendarFocusLost
 
     private void btn_verFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_verFocusGained
         // TODO add your handling code here:
-        btn_ver.setBackground(new Color(102,204,255));
+        btn_ver.setBackground(new Color(102, 204, 255));
     }//GEN-LAST:event_btn_verFocusGained
 
     private void btn_verFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_verFocusLost
         // TODO add your handling code here:
-        btn_ver.setBackground(new Color(204,204,204));
+        btn_ver.setBackground(new Color(204, 204, 204));
     }//GEN-LAST:event_btn_verFocusLost
 
     private void btn_modificarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_modificarFocusGained
         // TODO add your handling code here:
-        btn_modificar.setBackground(new Color(102,204,255));
-        
+        btn_modificar.setBackground(new Color(102, 204, 255));
+
     }//GEN-LAST:event_btn_modificarFocusGained
 
     private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
         // TODO add your handling code here:
-        ControladorModificarCliente.mostrarVentana( );
+        ControladorModificarCliente.mostrarVentana();
     }//GEN-LAST:event_btn_modificarActionPerformed
 
     private void btn_modificarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_modificarFocusLost
         // TODO add your handling code here:
-        btn_modificar.setBackground(new Color(204,204,204));
+        btn_modificar.setBackground(new Color(204, 204, 204));
     }//GEN-LAST:event_btn_modificarFocusLost
 
     private void btn_salirFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_salirFocusGained
         // TODO add your handling code here:
-        btn_salir.setBackground(new Color(102,204,255));
+        btn_salir.setBackground(new Color(102, 204, 255));
     }//GEN-LAST:event_btn_salirFocusGained
 
     private void btn_salirFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_salirFocusLost
         // TODO add your handling code here:
-        btn_salir.setBackground(new Color(204,204,204));
+        btn_salir.setBackground(new Color(204, 204, 204));
     }//GEN-LAST:event_btn_salirFocusLost
 
     private void btn_cerrarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_cerrarFocusGained
         // TODO add your handling code here:
-        btn_cerrar.setBackground(new Color(102,204,255));
-        
+        btn_cerrar.setBackground(new Color(102, 204, 255));
+
     }//GEN-LAST:event_btn_cerrarFocusGained
 
     private void btn_cerrarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_cerrarFocusLost
         // TODO add your handling code here
-        btn_cerrar.setBackground(new Color(204,204,204));
+        btn_cerrar.setBackground(new Color(204, 204, 204));
     }//GEN-LAST:event_btn_cerrarFocusLost
+
+    private void btn_mascotasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_mascotasFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_mascotasFocusGained
+
+    private void btn_mascotasFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_mascotasFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_mascotasFocusLost
+
+    private void btn_mascotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mascotasActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        ControladorVerMascotas.mostrarVentana();
+    }//GEN-LAST:event_btn_mascotasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -363,8 +405,6 @@ public class VistaMenuInicio extends javax.swing.JDialog {
         this.btn_agendar = btn_agendar;
     }
 
-
-
     public JButton getBtn_ver() {
         return btn_ver;
     }
@@ -384,6 +424,7 @@ public class VistaMenuInicio extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agendar;
     private javax.swing.JButton btn_cerrar;
+    private javax.swing.JButton btn_mascotas;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_salir;
     private javax.swing.JButton btn_ver;

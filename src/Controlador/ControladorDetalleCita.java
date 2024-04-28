@@ -68,6 +68,8 @@ public class ControladorDetalleCita {
     
     public static void modificar(Cita cita){
         ControladorAgendarCita.modificarVentana(cita);
+        vistaDetalle.setVisible(false);
+        vistaDetalle.dispose();
     }
 }
     
