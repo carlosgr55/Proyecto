@@ -61,8 +61,8 @@ public class VistaAgendarCita extends javax.swing.JDialog {
         comb_tipo = new javax.swing.JComboBox<>();
         comb_estetico = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        txt_nomMascota = new javax.swing.JTextField();
         selecFecha = new Modelo.Componentes.SelecFecha();
+        combo_mascotas = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -193,7 +193,7 @@ public class VistaAgendarCita extends javax.swing.JDialog {
 
         jLabel3.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 204));
-        jLabel3.setText("Nombre de tu mascota");
+        jLabel3.setText("Selecciona a tu mascota");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel3MouseEntered(evt);
@@ -203,34 +203,18 @@ public class VistaAgendarCita extends javax.swing.JDialog {
             }
         });
 
-        txt_nomMascota.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_nomMascotaFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_nomMascotaFocusLost(evt);
-            }
-        });
-        txt_nomMascota.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nomMascotaActionPerformed(evt);
-            }
-        });
-
-        selecFecha.setBackground(new java.awt.Color(255, 255, 255));
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
+                .addContainerGap(57, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(comb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lb_estetico)
                             .addComponent(comb_estetico, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -242,12 +226,12 @@ public class VistaAgendarCita extends javax.swing.JDialog {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(selecFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addContainerGap(12, Short.MAX_VALUE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(txt_nomMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(combo_mascotas, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(376, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,9 +252,9 @@ public class VistaAgendarCita extends javax.swing.JDialog {
                         .addComponent(selecFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(22, 22, 22)
-                .addComponent(txt_nomMascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(combo_mascotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
@@ -286,7 +270,6 @@ public class VistaAgendarCita extends javax.swing.JDialog {
         ControladorDetalleCita.mostrarVentana();
         ControladorDetalleCita.mostrarDatos(cita);
         new ControladorDetalleCita(cita);
-        txt_nomMascota.setText("");
     }//GEN-LAST:event_btn_siguienteActionPerformed
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
@@ -304,20 +287,6 @@ public class VistaAgendarCita extends javax.swing.JDialog {
         // TODO add your handling code here:
         jLabel1.setForeground(new Color(0, 153, 204));
     }//GEN-LAST:event_jLabel1MouseExited
-
-    private void txt_nomMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomMascotaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nomMascotaActionPerformed
-
-    private void txt_nomMascotaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nomMascotaFocusLost
-        // TODO add your handling code here:
-        txt_nomMascota.setBackground(new Color(204, 204, 204));
-    }//GEN-LAST:event_txt_nomMascotaFocusLost
-
-    private void txt_nomMascotaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nomMascotaFocusGained
-        // TODO add your handling code here:
-        txt_nomMascota.setBackground(new Color(102, 204, 255));
-    }//GEN-LAST:event_txt_nomMascotaFocusGained
 
     private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
         // TODO add your handling code here:{
@@ -390,12 +359,12 @@ public class VistaAgendarCita extends javax.swing.JDialog {
         lb_estetico.setForeground(Color.GREEN);
     }//GEN-LAST:event_lb_esteticoMouseEntered
 
-    public JTextField getTxt_nomMascota() {
-        return txt_nomMascota;
+    public JComboBox<String> getCombo_mascotas() {
+        return combo_mascotas;
     }
 
-    public void setTxt_nomMascota(JTextField txt_nomMascota) {
-        this.txt_nomMascota = txt_nomMascota;
+    public void setCombo_mascotas(JComboBox<String> combo_mascotas) {
+        this.combo_mascotas = combo_mascotas;
     }
 
     /**
@@ -498,6 +467,7 @@ public class VistaAgendarCita extends javax.swing.JDialog {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> comb_estetico;
     private javax.swing.JComboBox<String> comb_tipo;
+    private javax.swing.JComboBox<String> combo_mascotas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -509,6 +479,5 @@ public class VistaAgendarCita extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lb_estetico;
     private Modelo.Componentes.SelecFecha selecFecha;
-    private javax.swing.JTextField txt_nomMascota;
     // End of variables declaration//GEN-END:variables
 }

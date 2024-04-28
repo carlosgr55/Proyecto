@@ -3,6 +3,7 @@ package Controlador;
 import Modelo.DAO.daoClientes;
 import Modelo.VO.Cliente;
 import Vista.VistaMenuInicio;
+import javax.swing.JOptionPane;
 
 public class ControladorMenuInicio {
 
@@ -15,17 +16,16 @@ public class ControladorMenuInicio {
         index = daoCliente.indice(username);
     }
 
-    
-    public static void cerrar(){
+    public static void cerrar() {
         ControladorInicioSesion.mostrarVentana();
         menu.dispose();
         clienteActual = null;
     }
-    
-    public static void setClienteActual(Cliente cliente){
+
+    public static void setClienteActual(Cliente cliente) {
         clienteActual = cliente;
     }
-    
+
     public static void mostraVentana() {
         menu.setVisible(true);
         menu.getLbl_mensaje().setText("Hola, " + clienteActual.getNombre());
@@ -40,16 +40,20 @@ public class ControladorMenuInicio {
     public static Cliente getClienteActual() {
         return clienteActual;
     }
-    
-    public static void agendarCita(){
-        ControladorAgendarCita.mostrarVentanda();
+
+    public static void agendarCita() {
+        if (!clienteActual.getMascotas().isEmpty()) {
+            ControladorAgendarCita.mostrarVentanda();
+        } else {
+            JOptionPane.showMessageDialog(menu, "No hay mascotas registradas");
+        }
     }
-    
-    public static void setVisible(boolean estado){
+
+    public static void setVisible(boolean estado) {
         menu.setVisible(estado);
     }
-    
-    public static void verCitas(){
+
+    public static void verCitas() {
         menu.setVisible(false);
         ControladorVerCitas.mostrarVentana(true);
     }

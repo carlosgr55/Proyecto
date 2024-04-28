@@ -1,9 +1,12 @@
 package Controlador;
 
+import static Controlador.ControladorVerMascotas.listaMascota;
+import static Controlador.ControladorVerMascotas.vistaMascota;
 import Modelo.DAO.daoVeterinarios;
 import Modelo.Logica.LogicaVeterinario;
 import Modelo.VO.Cita;
 import Modelo.VO.Cliente;
+import Modelo.VO.Mascota;
 import Modelo.VO.Veterinario;
 import Vista.VistaAgendarCita;
 import java.time.LocalDateTime;
@@ -16,9 +19,18 @@ public class ControladorAgendarCita {
     static daoVeterinarios daoVet = new daoVeterinarios();
     static LogicaVeterinario logicaVeterinario = new LogicaVeterinario();
     private static ArrayList<LocalDateTime> fechas = new ArrayList<>();
+    static Cliente cliente;
+    static ArrayList<Mascota> listaMascota;
 
     public static daoVeterinarios getDaoVet() {
         return daoVet;
+    }
+
+    public static void popularCombo() {
+        for (Mascota mascota : listaMascota) {
+            String nombre = mascota.getNombre();
+            vistaAgendar.getCombo_mascotas().addItem(nombre);
+        }
     }
 
     public static void setDaoVet(daoVeterinarios daoVet) {
@@ -30,8 +42,12 @@ public class ControladorAgendarCita {
     }
 
     public static void mostrarVentanda() {
+        cliente = ControladorMenuInicio.getClienteActual();
+        listaMascota = cliente.getMascotas();
         vistaAgendar.setVisible(true);
         evento();
+        popularCombo();
+
     }
 
     public static void modificarVentana(Cita cita) {
@@ -40,7 +56,8 @@ public class ControladorAgendarCita {
         String mascota = cita.getNomMascota();
         String fecha = cita.getFecha().toString();
         vistaAgendar.getComb_tipo().setSelectedItem(tipo);
-        vistaAgendar.getTxt_nomMascota().setText(mascota);
+        popularCombo();
+        vistaAgendar.getCombo_mascotas().setSelectedItem(mascota);
         evento();
         //vistaAgendar.getCombo_fechas().setSelectedItem(fecha);
     }
@@ -77,7 +94,7 @@ public class ControladorAgendarCita {
         Veterinario vet = null;
         String especialidad = getEspecialidad();
         //LocalDateTime hora = LocalDateTime.parse((String) vistaAgendar.getCombo_fechas().getSelectedItem());
-        String hora = (String)vistaAgendar.getSelecFecha().getCombo_fecha().getSelectedItem();
+        String hora = (String) vistaAgendar.getSelecFecha().getCombo_fecha().getSelectedItem();
 
         for (Veterinario vetAux : daoVet.getListaVet()) {
 
@@ -117,7 +134,7 @@ public class ControladorAgendarCita {
         String id = ""; //Para actualizar
         Veterinario vet = getVeterinario();
         Cliente cliente = ControladorMenuInicio.getClienteActual();
-        String nomMascota = vistaAgendar.getTxt_nomMascota().getText();
+        String nomMascota = (String) vistaAgendar.getCombo_mascotas().getSelectedItem();
         LocalDateTime fecha = vistaAgendar.getSelecFecha().getFecha().fechaHora;
         String tipo = (String) vistaAgendar.getComb_tipo().getSelectedItem();
         cita = new Cita(id, vet, cliente, nomMascota, fecha, tipo);
