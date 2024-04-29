@@ -7,8 +7,11 @@ import Controlador.ControladorMenuInicio;
 import Controlador.ControladorModificarCliente;
 import Controlador.ControladorRegistrarMascota;
 import Controlador.ControladorVerMascotas;
+import Excepciones.MascotaExcepcion;
 import Modelo.VO.Cliente;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -377,7 +380,11 @@ public class VistaMenuInicio extends javax.swing.JDialog {
     private void btn_mascotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mascotasActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        ControladorVerMascotas.mostrarVentana();
+        try {
+            ControladorVerMascotas.mostrarVentana();
+        } catch (MascotaExcepcion ex) {
+            Logger.getLogger(VistaMenuInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_mascotasActionPerformed
 
     private void btn_agregarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_agregarFocusGained

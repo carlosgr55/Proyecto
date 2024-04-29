@@ -29,8 +29,6 @@ public class ControladorMenuInicio {
     public static void mostraVentana() {
         menu.setVisible(true);
         menu.getLbl_mensaje().setText("Hola, " + clienteActual.getNombre());
-        System.out.println(index);
-        System.out.println(clienteActual.toString());
     }
 
     public static void salir() {

@@ -121,7 +121,7 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
 
         jLabel2.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 204));
-        jLabel2.setText("Nombre: ");
+        jLabel2.setText("Nombre*: ");
 
         txt_nombre.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -139,7 +139,7 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
 
         jLabel3.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 204));
-        jLabel3.setText("Apellido:");
+        jLabel3.setText("Apellido*:");
 
         txt_apellido.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -157,7 +157,7 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
 
         jLabel4.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 204));
-        jLabel4.setText("Celular");
+        jLabel4.setText("Celular*:");
 
         txt_celular.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -180,7 +180,7 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
 
         jLabel9.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 153, 204));
-        jLabel9.setText("Correo:");
+        jLabel9.setText("Correo*:");
 
         txt_correo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -198,7 +198,7 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
 
         jLabel5.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 153, 204));
-        jLabel5.setText("Contaseña:");
+        jLabel5.setText("Contraseña*:");
 
         txt_password.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -211,7 +211,7 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
 
         jLabel8.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 153, 204));
-        jLabel8.setText("Usuario");
+        jLabel8.setText("Usuario*:");
 
         txt_usuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -247,7 +247,7 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txt_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8)
                             .addComponent(jLabel9)
                             .addComponent(jLabel5)
                             .addComponent(txt_password)
@@ -312,14 +312,12 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
             ControladorRegistrarMascota.mostrarVentana();
             ControladorRegistrarMascota.setCliente(nuevo);
             this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "USUARIO YA EXISTE");
         }
     }//GEN-LAST:event_btn_siguienteActionPerformed
 
     private void txt_correoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_correoActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_txt_correoActionPerformed
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
@@ -353,62 +351,62 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
 
     private void txt_nombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nombreFocusGained
         // TODO add your handling code here:
-        txt_nombre.setBackground(new Color(200,228,228));
+        txt_nombre.setBackground(new Color(200, 228, 228));
     }//GEN-LAST:event_txt_nombreFocusGained
 
     private void txt_nombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nombreFocusLost
         // TODO add your handling code here:
-        txt_nombre.setBackground(new Color(204,204,204));
+        txt_nombre.setBackground(new Color(204, 204, 204));
     }//GEN-LAST:event_txt_nombreFocusLost
 
     private void txt_apellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_apellidoFocusGained
         // TODO add your handling code here:
-        txt_apellido.setBackground(new Color(200,228,228));
+        txt_apellido.setBackground(new Color(200, 228, 228));
     }//GEN-LAST:event_txt_apellidoFocusGained
 
     private void txt_apellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_apellidoFocusLost
         // TODO add your handling code here:
-        txt_apellido.setBackground(new Color(204,204,204));
+        txt_apellido.setBackground(new Color(204, 204, 204));
     }//GEN-LAST:event_txt_apellidoFocusLost
 
     private void txt_celularFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_celularFocusGained
         // TODO add your handling code here:
-        txt_celular.setBackground(new Color(200,228,228));
+        txt_celular.setBackground(new Color(200, 228, 228));
     }//GEN-LAST:event_txt_celularFocusGained
 
     private void txt_celularFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_celularFocusLost
         // TODO add your handling code here:
-        txt_celular.setBackground(new Color(204,204,204));
+        txt_celular.setBackground(new Color(204, 204, 204));
     }//GEN-LAST:event_txt_celularFocusLost
 
     private void txt_correoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_correoFocusGained
         // TODO add your handling code here:
-        txt_correo.setBackground(new Color(200,228,228));
+        txt_correo.setBackground(new Color(200, 228, 228));
     }//GEN-LAST:event_txt_correoFocusGained
 
     private void txt_correoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_correoFocusLost
         // TODO add your handling code here:
-        txt_correo.setBackground(new Color(204,204,204));
+        txt_correo.setBackground(new Color(204, 204, 204));
     }//GEN-LAST:event_txt_correoFocusLost
 
     private void txt_usuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_usuarioFocusGained
         // TODO add your handling code here:
-        txt_usuario.setBackground(new Color(102,204,255));
+        txt_usuario.setBackground(new Color(102, 204, 255));
     }//GEN-LAST:event_txt_usuarioFocusGained
 
     private void txt_usuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_usuarioFocusLost
         // TODO add your handling code here:
-        txt_usuario.setBackground(new Color(204,204,204));
+        txt_usuario.setBackground(new Color(204, 204, 204));
     }//GEN-LAST:event_txt_usuarioFocusLost
 
     private void txt_passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_passwordFocusGained
         // TODO add your handling code here:
-        txt_password.setBackground(new Color(102,204,255));
+        txt_password.setBackground(new Color(102, 204, 255));
     }//GEN-LAST:event_txt_passwordFocusGained
 
     private void txt_passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_passwordFocusLost
         // TODO add your handling code here:
-        txt_password.setBackground(new Color(204,204,204));
+        txt_password.setBackground(new Color(204, 204, 204));
     }//GEN-LAST:event_txt_passwordFocusLost
 
     private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
@@ -477,9 +475,6 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
     public void setBtn_crear(JButton btn_crear) {
         this.btn_siguiente = btn_crear;
     }
-
-
-
 
     public JButton getBtn_regresar() {
         return btn_regresar;

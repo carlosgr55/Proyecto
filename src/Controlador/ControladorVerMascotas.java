@@ -1,10 +1,13 @@
 package Controlador;
 
+import Excepciones.MascotaExcepcion;
 import Modelo.VO.Cliente;
 import Modelo.VO.Mascota;
 import Vista.VistaAgendarCita;
 import Vista.VistaMascotas;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class ControladorVerMascotas {
@@ -13,7 +16,7 @@ public class ControladorVerMascotas {
     static Cliente clienteActual;
     static ArrayList<Mascota> listaMascota;
 
-    public static void mostrarVentana() {
+    public static void mostrarVentana() throws MascotaExcepcion {
         vistaMascota = new VistaMascotas();
         vistaMascota.setVisible(true);
         clienteActual = ControladorMenuInicio.getClienteActual();
@@ -26,6 +29,7 @@ public class ControladorVerMascotas {
             JOptionPane.showMessageDialog(null, "No hay mascotas que mostrar");
             vistaMascota.setVisible(false);
             vistaMascota.dispose();
+            throw new MascotaExcepcion();
         }
     }
 
@@ -37,7 +41,11 @@ public class ControladorVerMascotas {
             borrarMascota(mascota);
             vistaMascota.setVisible(false);
             vistaMascota.dispose();
-            mostrarVentana();
+            try {
+                mostrarVentana();
+            } catch (MascotaExcepcion ex) {
+                JOptionPane.showMessageDialog(vistaMascota, "No hay mascotas que mostrar");
+            }
         } else {
 
         }
@@ -88,7 +96,11 @@ public class ControladorVerMascotas {
         clienteActual.setMascotas(listaMascota);
 
         vistaMascota.dispose();
-        mostrarVentana();
+        try {
+            mostrarVentana();
+        } catch (MascotaExcepcion ex) {
+            JOptionPane.showMessageDialog(vistaMascota, "No hay mascotas que mostrar");
+        }
         habilitarBotones(true, true, false, true);
         habilitarCampos(false);
     }

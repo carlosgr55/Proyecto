@@ -1,11 +1,15 @@
 package Controlador;
 
+import Excepciones.ClienteNoExistente;
 import Modelo.DAO.daoClientes;
 import Modelo.Logica.LogicaClientes;
 import Modelo.VO.Cliente;
 import Vista.VistaInicioSesion;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class ControladorInicioSesion {
 
@@ -31,8 +35,9 @@ public class ControladorInicioSesion {
             mensaje("El cliente existe");
             Cliente cliente = dao.returnCliente(user);
             accesar(user, password, cliente);
-        } else {
-            mensaje("Nombre de usuario no encontrado!!!!!");
+        }
+        else{
+            mensaje("Nombre de usuario no encontrado");
         }
 
     }
@@ -46,7 +51,6 @@ public class ControladorInicioSesion {
             vInicio.dispose();
         } else {
             mensaje("Contraseña invalida intente de nuevo");
-
         }
     }
 
@@ -64,6 +68,5 @@ public class ControladorInicioSesion {
     public static void setDao(daoClientes dao) {
         ControladorInicioSesion.dao = dao;
     }
-    
 
 }
