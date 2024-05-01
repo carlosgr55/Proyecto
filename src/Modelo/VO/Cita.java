@@ -11,7 +11,9 @@ public class Cita {
     private String nomMascota;
     private LocalDateTime fecha;
     private String tipo;
-
+    private char estatus; //A de Atendida, P de pendiente, C de cancelada
+    
+    
     public Cita(String id, Veterinario vet, Cliente cliente, String nomMascota, LocalDateTime fecha, String tipo) {
         this.id = id;
         this.vet = vet;
@@ -19,6 +21,7 @@ public class Cita {
         this.nomMascota = nomMascota;
         this.fecha = fecha;
         this.tipo = tipo;
+        this.estatus = 'P';
     }
 
     public Cita() {
@@ -28,8 +31,19 @@ public class Cita {
         this.nomMascota = "";
         this.fecha = null;
         this.tipo = "";
+        this.estatus = 'P';
     }
 
+    public char getEstatus() {
+        return estatus;
+    }
+
+    public void setEstatus(char estatus) {
+        this.estatus = estatus;
+    }
+
+    
+    
     public void setId(String id) {
         this.id = id;
     }

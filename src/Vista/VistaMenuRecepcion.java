@@ -4,6 +4,7 @@ import Controlador.ControladorAgendarCita;
 import Controlador.ControladorAgregarMascota;
 import Controlador.ControladorHistorial;
 import Controlador.ControladorMenuInicio;
+import Controlador.ControladorMenuRecepcion;
 import Controlador.ControladorModificarCliente;
 import Controlador.ControladorRegistrarMascota;
 import Controlador.ControladorVerMascotas;
@@ -47,20 +48,15 @@ public class VistaMenuRecepcion extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        lbl_mensaje = new javax.swing.JLabel();
-        btn_cerrar = new javax.swing.JButton();
-        btn_salir = new javax.swing.JButton();
         btn_registrarCliente = new javax.swing.JButton();
         btn_agendarCita = new javax.swing.JButton();
+        btn_salir = new javax.swing.JButton();
+        btn_cerrar = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jPanel1.setBackground(new java.awt.Color(200, 228, 228));
-        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
         jPanel2.setBackground(new java.awt.Color(200, 228, 228));
 
@@ -68,72 +64,10 @@ public class VistaMenuRecepcion extends javax.swing.JDialog {
         jLabel1.setForeground(new java.awt.Color(0, 102, 204));
         jLabel1.setText("RECEPCION");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel1)
-                .addContainerGap(338, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_START);
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setForeground(new java.awt.Color(0, 102, 255));
-
-        lbl_mensaje.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-
-        btn_cerrar.setBackground(new java.awt.Color(255, 255, 255));
-        btn_cerrar.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
-        btn_cerrar.setForeground(new java.awt.Color(0, 102, 255));
-        btn_cerrar.setText("Cerrar Sesion");
-        btn_cerrar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btn_cerrar.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                btn_cerrarFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                btn_cerrarFocusLost(evt);
-            }
-        });
-        btn_cerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cerrarActionPerformed(evt);
-            }
-        });
-
-        btn_salir.setBackground(new java.awt.Color(255, 255, 255));
-        btn_salir.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
-        btn_salir.setForeground(new java.awt.Color(0, 102, 255));
-        btn_salir.setText("Salir");
-        btn_salir.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btn_salir.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                btn_salirFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                btn_salirFocusLost(evt);
-            }
-        });
-        btn_salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_salirActionPerformed(evt);
-            }
-        });
-
         btn_registrarCliente.setBackground(new java.awt.Color(255, 255, 255));
         btn_registrarCliente.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
         btn_registrarCliente.setForeground(new java.awt.Color(0, 102, 255));
-        btn_registrarCliente.setText("Agendar cita");
+        btn_registrarCliente.setText("Registrar Cliente");
         btn_registrarCliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btn_registrarCliente.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -168,48 +102,92 @@ public class VistaMenuRecepcion extends javax.swing.JDialog {
             }
         });
 
+        btn_salir.setBackground(new java.awt.Color(255, 255, 255));
+        btn_salir.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
+        btn_salir.setForeground(new java.awt.Color(0, 102, 255));
+        btn_salir.setText("Salir");
+        btn_salir.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btn_salir.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                btn_salirFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                btn_salirFocusLost(evt);
+            }
+        });
+        btn_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salirActionPerformed(evt);
+            }
+        });
+
+        btn_cerrar.setBackground(new java.awt.Color(255, 255, 255));
+        btn_cerrar.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
+        btn_cerrar.setForeground(new java.awt.Color(0, 102, 255));
+        btn_cerrar.setText("Cerrar Sesion");
+        btn_cerrar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btn_cerrar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                btn_cerrarFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                btn_cerrarFocusLost(evt);
+            }
+        });
+        btn_cerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cerrarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btn_agendarCita, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_registrarCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(29, 29, 29))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_cerrar)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_registrarCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_agendarCita)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_salir)
+                    .addComponent(btn_cerrar)))
+        );
+
+        getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_START);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setForeground(new java.awt.Color(0, 102, 255));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbl_mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 160, Short.MAX_VALUE)
-                .addComponent(btn_registrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(146, 146, 146))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                    .addContainerGap(159, Short.MAX_VALUE)
-                    .addComponent(btn_agendarCita, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(147, 147, 147)))
+            .addGap(0, 417, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(lbl_mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
-                .addComponent(btn_registrarCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_cerrar)
-                    .addComponent(btn_salir))
-                .addContainerGap())
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(57, 57, 57)
-                    .addComponent(btn_agendarCita)
-                    .addContainerGap(332, Short.MAX_VALUE)))
+            .addGap(0, 444, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
@@ -220,12 +198,12 @@ public class VistaMenuRecepcion extends javax.swing.JDialog {
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
         // TODO add your handling code here:
-        ControladorMenuInicio.salir();
+        ControladorMenuRecepcion.salir();
     }//GEN-LAST:event_btn_salirActionPerformed
 
     private void btn_cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrarActionPerformed
         // TODO add your handling code here:
-        ControladorMenuInicio.cerrar();
+        ControladorMenuRecepcion.cerrarSesion();
     }//GEN-LAST:event_btn_cerrarActionPerformed
 
     private void btn_salirFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_salirFocusGained
@@ -271,6 +249,7 @@ public class VistaMenuRecepcion extends javax.swing.JDialog {
 
     private void btn_agendarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agendarCitaActionPerformed
         // TODO add your handling code here:
+        ControladorMenuRecepcion.agendarCitaRec();
     }//GEN-LAST:event_btn_agendarCitaActionPerformed
 
     /**
@@ -322,29 +301,6 @@ public class VistaMenuRecepcion extends javax.swing.JDialog {
         });
     }
 
-    public JButton getBtn_agendar() {
-        return btn_agendar;
-    }
-
-    public void setBtn_agendar(JButton btn_agendar) {
-        this.btn_agendar = btn_agendar;
-    }
-
-    public JButton getBtn_ver() {
-        return btn_ver;
-    }
-
-    public void setBtn_ver(JButton btn_ver) {
-        this.btn_ver = btn_ver;
-    }
-
-    public JLabel getLbl_mensaje() {
-        return lbl_mensaje;
-    }
-
-    public void setLbl_mensaje(JLabel lbl_mensaje) {
-        this.lbl_mensaje = lbl_mensaje;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agendarCita;
@@ -352,9 +308,7 @@ public class VistaMenuRecepcion extends javax.swing.JDialog {
     private javax.swing.JButton btn_registrarCliente;
     private javax.swing.JButton btn_salir;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel lbl_mensaje;
     // End of variables declaration//GEN-END:variables
 }
