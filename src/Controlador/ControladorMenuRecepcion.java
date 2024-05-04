@@ -25,7 +25,7 @@ public class ControladorMenuRecepcion {
 
     public static void agendarCitaRec() {
         //Preguntar si tiene cuenta
-        
+        ControladorAgendarRecepcion.mostrarVentana();
         
     }
     

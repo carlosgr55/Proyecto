@@ -4,19 +4,29 @@
  */
 package Vista;
 
+import Controlador.ControladorAgendarCita;
+import Controlador.ControladorAgendarRecepcion;
+import Modelo.Componentes.SelecFecha;
 import java.awt.Color;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
  * @author gambo
  */
-public class AgendarRecepcion extends javax.swing.JDialog {
+public class VistaAgendarRecepcion extends javax.swing.JDialog {
 
     /**
      * Creates new form AgendarRecepcion
      */
-    public AgendarRecepcion(java.awt.Frame parent, boolean modal) {
+    public VistaAgendarRecepcion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        initComponents();
+    }
+    public VistaAgendarRecepcion() {
+        super();
         initComponents();
     }
 
@@ -48,6 +58,7 @@ public class AgendarRecepcion extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         btn_siguiente = new javax.swing.JButton();
         btn_atras = new javax.swing.JButton();
+        lb_mensaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -81,6 +92,17 @@ public class AgendarRecepcion extends javax.swing.JDialog {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel5MouseExited(evt);
+            }
+        });
+
+        txt_usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_usuarioActionPerformed(evt);
+            }
+        });
+        txt_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_usuarioKeyTyped(evt);
             }
         });
 
@@ -181,6 +203,18 @@ public class AgendarRecepcion extends javax.swing.JDialog {
 
         btn_atras.setText("Atras");
 
+        lb_mensaje.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        lb_mensaje.setForeground(new java.awt.Color(0, 153, 204));
+        lb_mensaje.setText("Usuario");
+        lb_mensaje.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lb_mensajeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lb_mensajeMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout paneles3Layout = new javax.swing.GroupLayout(paneles3);
         paneles3.setLayout(paneles3Layout);
         paneles3Layout.setHorizontalGroup(
@@ -194,19 +228,22 @@ public class AgendarRecepcion extends javax.swing.JDialog {
                                 .addComponent(jLabel8)
                                 .addGap(18, 18, 18)
                                 .addComponent(selecFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(paneles3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(paneles3Layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(comb_mascotas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(paneles3Layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(paneles3Layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txt_nombre))))
+                            .addGroup(paneles3Layout.createSequentialGroup()
+                                .addGroup(paneles3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(paneles3Layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(comb_mascotas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(paneles3Layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(paneles3Layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txt_nombre)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lb_mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                     .addGroup(paneles3Layout.createSequentialGroup()
                         .addComponent(jLabel9)
@@ -231,7 +268,8 @@ public class AgendarRecepcion extends javax.swing.JDialog {
                 .addGap(33, 33, 33)
                 .addGroup(paneles3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(lb_mensaje))
                 .addGap(18, 18, 18)
                 .addGroup(paneles3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -347,6 +385,24 @@ public class AgendarRecepcion extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel10MouseExited
 
+    private void lb_mensajeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_mensajeMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_mensajeMouseEntered
+
+    private void lb_mensajeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_mensajeMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_mensajeMouseExited
+
+    private void txt_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_usuarioActionPerformed
+
+    private void txt_usuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usuarioKeyTyped
+        // TODO add your handling code here:
+        String txt = this.txt_usuario.getText();
+        ControladorAgendarRecepcion.verificarUsuario(txt);
+    }//GEN-LAST:event_txt_usuarioKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -364,20 +420,21 @@ public class AgendarRecepcion extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AgendarRecepcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaAgendarRecepcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AgendarRecepcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaAgendarRecepcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AgendarRecepcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaAgendarRecepcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AgendarRecepcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaAgendarRecepcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AgendarRecepcion dialog = new AgendarRecepcion(new javax.swing.JFrame(), true);
+                VistaAgendarRecepcion dialog = new VistaAgendarRecepcion(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -389,6 +446,66 @@ public class AgendarRecepcion extends javax.swing.JDialog {
         });
     }
 
+    public JComboBox<String> getComb_estetico() {
+        return comb_estetico;
+    }
+
+    public void setComb_estetico(JComboBox<String> comb_estetico) {
+        this.comb_estetico = comb_estetico;
+    }
+
+    public JComboBox<String> getComb_mascotas() {
+        return comb_mascotas;
+    }
+
+    public void setComb_mascotas(JComboBox<String> comb_mascotas) {
+        this.comb_mascotas = comb_mascotas;
+    }
+
+    public JComboBox<String> getComb_tipo() {
+        return comb_tipo;
+    }
+
+    public void setComb_tipo(JComboBox<String> comb_tipo) {
+        this.comb_tipo = comb_tipo;
+    }
+
+    public JLabel getLb_mensaje() {
+        return lb_mensaje;
+    }
+
+    public void setLb_mensaje(JLabel lb_mensaje) {
+        this.lb_mensaje = lb_mensaje;
+    }
+
+    public SelecFecha getSelecFecha1() {
+        return selecFecha1;
+    }
+
+    public void setSelecFecha1(SelecFecha selecFecha1) {
+        this.selecFecha1 = selecFecha1;
+    }
+
+    public JTextField getTxt_nombre() {
+        return txt_nombre;
+    }
+
+    public void setTxt_nombre(JTextField txt_nombre) {
+        this.txt_nombre = txt_nombre;
+    }
+
+    public JTextField getTxt_usuario() {
+        return txt_usuario;
+    }
+
+    public void setTxt_usuario(JTextField txt_usuario) {
+        this.txt_usuario = txt_usuario;
+    }
+
+    
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_atras;
     private javax.swing.JButton btn_siguiente;
@@ -404,6 +521,7 @@ public class AgendarRecepcion extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lb_mensaje;
     private Modelo.Componentes.Paneles paneles1;
     private Modelo.Componentes.Paneles paneles3;
     private Modelo.Componentes.SelecFecha selecFecha1;
