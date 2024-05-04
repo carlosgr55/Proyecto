@@ -25,9 +25,11 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+
     public VistaAgendarRecepcion() {
         super();
         initComponents();
+        this.comb_estetico.setVisible(false);
     }
 
     /**
@@ -55,7 +57,7 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         comb_tipo = new javax.swing.JComboBox<>();
         comb_estetico = new javax.swing.JComboBox<>();
-        jLabel10 = new javax.swing.JLabel();
+        lb_estetico = new javax.swing.JLabel();
         btn_siguiente = new javax.swing.JButton();
         btn_atras = new javax.swing.JButton();
         lb_mensaje = new javax.swing.JLabel();
@@ -101,6 +103,12 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
             }
         });
         txt_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_usuarioKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_usuarioKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_usuarioKeyTyped(evt);
             }
@@ -132,6 +140,8 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
             }
         });
 
+        comb_mascotas.setEnabled(false);
+
         jLabel8.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 153, 204));
         jLabel8.setText("Fecha");
@@ -143,6 +153,8 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
                 jLabel8MouseExited(evt);
             }
         });
+
+        selecFecha1.setEnabled(false);
 
         jLabel9.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 153, 204));
@@ -157,6 +169,7 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
         });
 
         comb_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Revision", "Esterelizacion", "Estetico", "Vacunacion" }));
+        comb_tipo.setEnabled(false);
         comb_tipo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 comb_tipoItemStateChanged(evt);
@@ -187,21 +200,26 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 153, 204));
-        jLabel10.setText("Estetico");
-        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+        lb_estetico.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        lb_estetico.setForeground(new java.awt.Color(0, 153, 204));
+        lb_estetico.setText("Estetico");
+        lb_estetico.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel10MouseEntered(evt);
+                lb_esteticoMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel10MouseExited(evt);
+                lb_esteticoMouseExited(evt);
             }
         });
 
         btn_siguiente.setText("Siguiente");
 
         btn_atras.setText("Atras");
+        btn_atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_atrasActionPerformed(evt);
+            }
+        });
 
         lb_mensaje.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         lb_mensaje.setForeground(new java.awt.Color(0, 153, 204));
@@ -257,7 +275,7 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
                             .addGroup(paneles3Layout.createSequentialGroup()
                                 .addComponent(comb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel10)
+                                .addComponent(lb_estetico)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                                 .addComponent(comb_estetico, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(73, 73, 73))))))
@@ -287,7 +305,7 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
                     .addComponent(jLabel9)
                     .addComponent(comb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comb_estetico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
+                    .addComponent(lb_estetico))
                 .addGap(18, 18, 18)
                 .addGroup(paneles3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_siguiente)
@@ -351,6 +369,7 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
 
     private void comb_tipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comb_tipoItemStateChanged
         // TODO add your handling code here:
+        ControladorAgendarRecepcion.evento();
     }//GEN-LAST:event_comb_tipoItemStateChanged
 
     private void comb_tipoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comb_tipoFocusGained
@@ -377,13 +396,13 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
         comb_estetico.setBackground(new Color(204, 204, 204));
     }//GEN-LAST:event_comb_esteticoFocusLost
 
-    private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
+    private void lb_esteticoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_esteticoMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel10MouseEntered
+    }//GEN-LAST:event_lb_esteticoMouseEntered
 
-    private void jLabel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseExited
+    private void lb_esteticoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_esteticoMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel10MouseExited
+    }//GEN-LAST:event_lb_esteticoMouseExited
 
     private void lb_mensajeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_mensajeMouseEntered
         // TODO add your handling code here:
@@ -399,9 +418,24 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
 
     private void txt_usuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usuarioKeyTyped
         // TODO add your handling code here:
+
+    }//GEN-LAST:event_txt_usuarioKeyTyped
+
+    private void txt_usuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usuarioKeyPressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_txt_usuarioKeyPressed
+
+    private void txt_usuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usuarioKeyReleased
+        // TODO add your handling code here:
         String txt = this.txt_usuario.getText();
         ControladorAgendarRecepcion.verificarUsuario(txt);
-    }//GEN-LAST:event_txt_usuarioKeyTyped
+    }//GEN-LAST:event_txt_usuarioKeyReleased
+
+    private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed
+        // TODO add your handling code here:
+        ControladorAgendarRecepcion.regresar();
+    }//GEN-LAST:event_btn_atrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -502,10 +536,17 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
         this.txt_usuario = txt_usuario;
     }
 
+    public JLabel getLb_estetico() {
+        return lb_estetico;
+    }
+
+    public void setLb_estetico(JLabel lb_estetico) {
+        this.lb_estetico = lb_estetico;
+    }
     
     
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_atras;
     private javax.swing.JButton btn_siguiente;
@@ -514,13 +555,13 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> comb_estetico;
     private javax.swing.JComboBox<String> comb_mascotas;
     private javax.swing.JComboBox<String> comb_tipo;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lb_estetico;
     private javax.swing.JLabel lb_mensaje;
     private Modelo.Componentes.Paneles paneles1;
     private Modelo.Componentes.Paneles paneles3;
