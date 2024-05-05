@@ -13,8 +13,14 @@ public class ControladorCrearCuenta {
     static VistaCrearCuenta vistaCrear;
     static daoClientes dao = new daoClientes();
     static LogicaClientes logica = new LogicaClientes();
+    public static boolean esRecepcion = false;
 
     public static void mostrarVentana() {
+        vistaCrear = new VistaCrearCuenta();
+        vistaCrear.setVisible(true);
+    }
+    public static void mostrarVentana(boolean recep) {
+        esRecepcion = recep;
         vistaCrear = new VistaCrearCuenta();
         vistaCrear.setVisible(true);
     }

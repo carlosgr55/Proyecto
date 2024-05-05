@@ -2,6 +2,7 @@ package Vista;
 
 import Controlador.ControladorAgendarCita;
 import Controlador.ControladorAgregarMascota;
+import Controlador.ControladorCrearCuenta;
 import Controlador.ControladorHistorial;
 import Controlador.ControladorMenuInicio;
 import Controlador.ControladorMenuRecepcion;
@@ -237,6 +238,7 @@ public class VistaMenuRecepcion extends javax.swing.JDialog {
 
     private void btn_registrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarClienteActionPerformed
         // TODO add your handling code here:
+        ControladorCrearCuenta.mostrarVentana(true);
     }//GEN-LAST:event_btn_registrarClienteActionPerformed
 
     private void btn_agendarCitaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_agendarCitaFocusGained
