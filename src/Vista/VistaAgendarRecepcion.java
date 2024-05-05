@@ -6,8 +6,11 @@ package Vista;
 
 import Controlador.ControladorAgendarCita;
 import Controlador.ControladorAgendarRecepcion;
+import Controlador.ControladorDetalleCita;
 import Modelo.Componentes.SelecFecha;
+import Modelo.VO.Cita;
 import java.awt.Color;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -53,7 +56,6 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         comb_mascotas = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        selecFecha1 = new Modelo.Componentes.SelecFecha();
         jLabel9 = new javax.swing.JLabel();
         comb_tipo = new javax.swing.JComboBox<>();
         comb_estetico = new javax.swing.JComboBox<>();
@@ -61,6 +63,7 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
         btn_siguiente = new javax.swing.JButton();
         btn_atras = new javax.swing.JButton();
         lb_mensaje = new javax.swing.JLabel();
+        selecFecha1 = new Modelo.Componentes.SelecFecha();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -154,8 +157,6 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
             }
         });
 
-        selecFecha1.setEnabled(false);
-
         jLabel9.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 153, 204));
         jLabel9.setText("Tipo cita");
@@ -213,6 +214,11 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
         });
 
         btn_siguiente.setText("Siguiente");
+        btn_siguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_siguienteActionPerformed(evt);
+            }
+        });
 
         btn_atras.setText("Atras");
         btn_atras.addActionListener(new java.awt.event.ActionListener() {
@@ -241,11 +247,23 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
                 .addGap(53, 53, 53)
                 .addGroup(paneles3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(paneles3Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
                         .addGroup(paneles3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(paneles3Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
+                                .addComponent(btn_atras)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_siguiente)
+                                .addGap(102, 102, 102))
+                            .addGroup(paneles3Layout.createSequentialGroup()
+                                .addComponent(comb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(selecFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lb_estetico)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                                .addComponent(comb_estetico, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(73, 73, 73))))
+                    .addGroup(paneles3Layout.createSequentialGroup()
+                        .addGroup(paneles3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(paneles3Layout.createSequentialGroup()
                                 .addGroup(paneles3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(paneles3Layout.createSequentialGroup()
@@ -261,24 +279,12 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
                                         .addGap(18, 18, 18)
                                         .addComponent(txt_nombre)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lb_mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())
-                    .addGroup(paneles3Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addGroup(paneles3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lb_mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(paneles3Layout.createSequentialGroup()
-                                .addComponent(btn_atras)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_siguiente)
-                                .addGap(102, 102, 102))
-                            .addGroup(paneles3Layout.createSequentialGroup()
-                                .addComponent(comb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lb_estetico)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                                .addComponent(comb_estetico, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(73, 73, 73))))))
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(selecFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         paneles3Layout.setVerticalGroup(
             paneles3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -296,11 +302,15 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
                 .addGroup(paneles3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(comb_mascotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(paneles3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
-                    .addComponent(selecFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGroup(paneles3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(paneles3Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel8)
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneles3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(selecFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addGroup(paneles3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(comb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -437,6 +447,13 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
         ControladorAgendarRecepcion.regresar();
     }//GEN-LAST:event_btn_atrasActionPerformed
 
+    private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
+        // TODO add your handling code here:
+        Cita cita = ControladorAgendarRecepcion.crearCita();
+        this.setVisible(false);
+        ControladorDetalleCita.mostrarVentana(cita);
+    }//GEN-LAST:event_btn_siguienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -496,6 +513,16 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
         this.comb_mascotas = comb_mascotas;
     }
 
+    public JButton getBtn_siguiente() {
+        return btn_siguiente;
+    }
+
+    public void setBtn_siguiente(JButton btn_siguiente) {
+        this.btn_siguiente = btn_siguiente;
+    }
+
+    
+    
     public JComboBox<String> getComb_tipo() {
         return comb_tipo;
     }
@@ -543,8 +570,6 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
     public void setLb_estetico(JLabel lb_estetico) {
         this.lb_estetico = lb_estetico;
     }
-    
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

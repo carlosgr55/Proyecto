@@ -30,14 +30,15 @@ public class ControladorAgendarRecepcion {
     static daoVeterinarios daoVet = ControladorAgendarCita.getDaoVet();
 
     public static void mostrarVentana() {
+        vistaAgeRec.getBtn_siguiente().setEnabled(false);
         vistaAgeRec.getLb_mensaje().setVisible(false);
         vistaAgeRec.setVisible(true);
-
     }
 
     public static void verificarUsuario(String txt) {
         vistaAgeRec.getLb_mensaje().setVisible(true);
         if (!clientesdao.consulta(txt)) {
+            vistaAgeRec.getBtn_siguiente().setEnabled(false);
             vistaAgeRec.getLb_mensaje().setText("El cliente no existe");
             limpiarDatos();
 
@@ -47,6 +48,7 @@ public class ControladorAgendarRecepcion {
             llenarDatos(cliente);
             evento();
             habilitar(true, true, true);
+            vistaAgeRec.getBtn_siguiente().setEnabled(true);
         }
     }
 
@@ -124,9 +126,9 @@ public class ControladorAgendarRecepcion {
         Cita cita;
         String id = ""; //Para actualizar
         Veterinario vet = getVeterinario();
-        Cliente cliente = ControladorMenuInicio.getClienteActual();
+        Cliente cliente = clientesdao.returnCliente(vistaAgeRec.getTxt_usuario().getText());
         String nomMascota = (String) vistaAgeRec.getComb_mascotas().getSelectedItem();
-        LocalDateTime fecha = vistaAgeRec.getSelecFecha1().getFecha().fechaHora;
+        LocalDateTime fecha = vistaAgeRec.getSelecFecha1().getFechaHora();
         String tipo = (String) vistaAgeRec.getComb_tipo().getSelectedItem();
         cita = new Cita(id, vet, cliente, nomMascota, fecha, tipo);
         daoVet.quitarHoras(fecha, vet);

@@ -81,8 +81,7 @@ public class SelecFecha extends javax.swing.JPanel {
             combo_fecha.addItem(hora);
         }
     }
-    
-    
+
     private Date minFecha() {
         LocalDateTime hoy = Fecha.diaActual();
         int dia = hoy.getDayOfYear() + 1;
@@ -103,6 +102,18 @@ public class SelecFecha extends javax.swing.JPanel {
         int min = 0;
         Fecha retFecha = new Fecha(dia, mes, ano, hora, min);
         return retFecha;
+    }
+
+    public LocalDateTime getFechaHora() {
+        Date date = this.selec_fecha.getDate();
+        int hora = getHora();
+        LocalDate fecha = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        int dia = fecha.getDayOfMonth();
+        int mes = fecha.getMonthValue();
+        int ano = fecha.getYear();
+        int min = 0;
+        LocalDateTime local = LocalDateTime.of(ano, mes, dia, hora, min);
+        return local;
     }
 
     public int getHora() {
