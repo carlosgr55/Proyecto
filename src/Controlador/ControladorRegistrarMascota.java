@@ -6,10 +6,11 @@ import Vista.VistaRegistrarMascota;
 
 public class ControladorRegistrarMascota {
 
-    static VistaRegistrarMascota vistaRegistro = new VistaRegistrarMascota();
+    static VistaRegistrarMascota vistaRegistro;
     static Cliente cliente;
 
     public static void mostrarVentana() {
+        vistaRegistro = new VistaRegistrarMascota();
         vistaRegistro.setVisible(true);
     }
 
@@ -36,6 +37,7 @@ public class ControladorRegistrarMascota {
         return mascota;
 
     }
+
     public static String getEspecie() {
         return (String) vistaRegistro.getCombo_especie().getSelectedItem();
     }

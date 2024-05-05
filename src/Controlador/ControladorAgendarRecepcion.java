@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Modelo.Componentes.FechaIsNull;
 import Modelo.DAO.daoClientes;
 import Modelo.DAO.daoVeterinarios;
 import Modelo.Logica.LogicaVeterinario;
@@ -122,7 +123,7 @@ public class ControladorAgendarRecepcion {
 
     }
 
-    public static Cita crearCita() {
+    public static Cita crearCita() throws FechaIsNull {
         Cita cita;
         String id = ""; //Para actualizar
         Veterinario vet = getVeterinario();

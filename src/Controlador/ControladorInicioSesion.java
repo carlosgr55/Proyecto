@@ -1,6 +1,6 @@
 package Controlador;
 
-import Excepciones.ClienteNoExistente;
+import Excepciones.ClientesExcepciones;
 import Modelo.DAO.daoClientes;
 import Modelo.Logica.LogicaClientes;
 import Modelo.VO.Cliente;

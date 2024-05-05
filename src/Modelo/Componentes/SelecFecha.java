@@ -92,28 +92,38 @@ public class SelecFecha extends javax.swing.JPanel {
         return date;
     }
 
-    public Fecha getFecha() {
-        Date date = selec_fecha.getDate();
-        LocalDate fecha = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        int hora = getHora();
-        int dia = fecha.getDayOfMonth();
-        int mes = fecha.getMonthValue();
-        int ano = fecha.getYear();
-        int min = 0;
-        Fecha retFecha = new Fecha(dia, mes, ano, hora, min);
-        return retFecha;
+    public Fecha getFecha() throws FechaIsNull {
+        Date fechaaux = selec_fecha.getDate();
+        if (fechaaux == null) {
+            throw new FechaIsNull("Se debe de seleccionar una fecha");
+        } else {
+            Date date = selec_fecha.getDate();
+            LocalDate fecha = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            int hora = getHora();
+            int dia = fecha.getDayOfMonth();
+            int mes = fecha.getMonthValue();
+            int ano = fecha.getYear();
+            int min = 0;
+            Fecha retFecha = new Fecha(dia, mes, ano, hora, min);
+            return retFecha;
+        }
     }
 
-    public LocalDateTime getFechaHora() {
-        Date date = this.selec_fecha.getDate();
-        int hora = getHora();
-        LocalDate fecha = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        int dia = fecha.getDayOfMonth();
-        int mes = fecha.getMonthValue();
-        int ano = fecha.getYear();
-        int min = 0;
-        LocalDateTime local = LocalDateTime.of(ano, mes, dia, hora, min);
-        return local;
+    public LocalDateTime getFechaHora() throws FechaIsNull {
+        Date fechaaux = selec_fecha.getDate();
+        if (fechaaux == null) {
+            throw new FechaIsNull("Se debe de seleccionar una fecha");
+        } else {
+            Date date = this.selec_fecha.getDate();
+            int hora = getHora();
+            LocalDate fecha = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            int dia = fecha.getDayOfMonth();
+            int mes = fecha.getMonthValue();
+            int ano = fecha.getYear();
+            int min = 0;
+            LocalDateTime local = LocalDateTime.of(ano, mes, dia, hora, min);
+            return local;
+        }
     }
 
     public int getHora() {

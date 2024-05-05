@@ -7,12 +7,16 @@ package Vista;
 import Controlador.ControladorAgendarCita;
 import Controlador.ControladorAgendarRecepcion;
 import Controlador.ControladorDetalleCita;
+import Modelo.Componentes.FechaIsNull;
 import Modelo.Componentes.SelecFecha;
 import Modelo.VO.Cita;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -448,10 +452,14 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
     }//GEN-LAST:event_btn_atrasActionPerformed
 
     private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
-        // TODO add your handling code here:
-        Cita cita = ControladorAgendarRecepcion.crearCita();
-        this.setVisible(false);
-        ControladorDetalleCita.mostrarVentana(cita);
+        try {
+            // TODO add your handling code here:
+            Cita cita = ControladorAgendarRecepcion.crearCita();
+            this.setVisible(false);
+            ControladorDetalleCita.mostrarVentana(cita);
+        } catch (FechaIsNull ex) {
+            JOptionPane.showMessageDialog(this, "Debes de seleccionar una fecha");
+        }
     }//GEN-LAST:event_btn_siguienteActionPerformed
 
     /**
