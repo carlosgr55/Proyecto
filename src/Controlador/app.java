@@ -7,7 +7,8 @@ import Vista.VistaPrincipal;
 public class app {
 
     public static void main(String[] args) {
-        ControladorInicioSesion.mostrarVentana();
-        ControladorMenuRecepcion.mostrarVentana();
+        //ControladorInicioSesion.mostrarVentana();
+        //ControladorMenuRecepcion.mostrarVentana();
+        ControladorInicioAdmin.mostrarVentana();
     }
 }

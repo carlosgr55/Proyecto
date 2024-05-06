@@ -98,4 +98,13 @@ public class RepositorioVeterinarios {
         return lista.get(index).getEspecialidad();
     }
 
+    public void eliminarVet(String name) {
+        for (Veterinario veterinario : lista) {
+            if (veterinario.getUsuario().equals(name)) {
+                lista.remove(veterinario);
+            }
+
+        }
+    }
+
 }
