@@ -46,6 +46,7 @@ public class RepositorioClientes {
         cargarMascotas();
     }
     
+    
     public void cargarMascotas(){
         listaClientes.get(0).addMascota(new Mascota("El Mal Querer", "Perro", 'M'));
         listaClientes.get(0).addMascota(new Mascota("Los Angeles", "Perro", 'M'));

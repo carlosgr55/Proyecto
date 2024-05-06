@@ -26,26 +26,28 @@ import javax.swing.table.TableRowSorter;
  * @author danii
  */
 public class ControladorVeterinarios {
-     private static VistaTablaCitasClientes vistaCitas;
-     static VistaVeterinarios veter = new VistaVeterinarios();
+
+    private static VistaTablaCitasClientes vistaCitas;
+    static VistaVeterinarios veter = new VistaVeterinarios();
     private static daoCitas dao = ControladorDetalleCita.getDaocitas();
-     
-     
-     
-      public static void mostrarVentana(boolean mostrar) {
+
+    public static void mostrarVentana(boolean mostrar) {
         vistaCitas = new VistaTablaCitasClientes(); //Es necesario crear el objeto cuando se muestra la ventana para poder crear el filtro
         vistaCitas.setVisible(mostrar);
 
     }
-      public static void verCitas() {
+
+    public static void verCitas() {
         veter.setVisible(false);
         ControladorVerCitas.mostrarVentana(true);
     }
-          public static void regresar() {
+
+    public static void regresar() {
         veter.setVisible(false);
         ControladorInicioSesion.mostrarVentana();
     }
-           public static Cita getCitaTabla(int fila, JTable tabla) {
+
+    public static Cita getCitaTabla(int fila, JTable tabla) {
         Cita cita = null;
         if (fila == -1) {
             JOptionPane.showMessageDialog(null, "Debes seleccionar una fila");
@@ -63,15 +65,15 @@ public class ControladorVeterinarios {
             Cita cita = getCitaTabla(index, vistaCitas.getTabla_citas());
             habilitarVet(cita);
             dao.getLista().remove(cita);
-            ControladorDetalleCita.getDaocitas().setLista(dao.getLista());  
+            ControladorDetalleCita.getDaocitas().setLista(dao.getLista());
             vistaCitas.setVisible(false);
             vistaCitas.dispose();
             mostrarVentana(true);
         }
 
     }
-    
-    public static void habilitarVet(Cita cita){
+
+    public static void habilitarVet(Cita cita) {
         daoVeterinarios daoVet = ControladorAgendarCita.getDaoVet();
         LocalDateTime fecha = cita.getFecha();
         Veterinario vet = cita.getVet();
@@ -80,10 +82,15 @@ public class ControladorVeterinarios {
         ControladorAgendarCita.setDaoVet(daoVet);
     }
 
-
     public static void filtrarTabla(Cliente cliente, TableRowSorter<TableModel> sorter) {
-        String filtro = cliente.getNombre();
-        sorter.setRowFilter(RowFilter.regexFilter(filtro, 1));
+
+        if (cliente != null) {
+            String filtro = cliente.getNombre();
+            sorter.setRowFilter(RowFilter.regexFilter(filtro, 1));
+        } else {
+            // Manejar el caso en que el objeto cliente sea null
+        }
+
     }
 
     public static JTable getTabla() {
@@ -93,6 +100,5 @@ public class ControladorVeterinarios {
     public static void setTabla(JTable tabla) {
         vistaCitas.setTabla_citas(tabla);
     }
-
 
 }
