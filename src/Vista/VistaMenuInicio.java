@@ -49,7 +49,7 @@ public class VistaMenuInicio extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jlbMenuInicio = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btn_salir = new javax.swing.JButton();
         btn_agendar = new javax.swing.JButton();
@@ -68,9 +68,17 @@ public class VistaMenuInicio extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(200, 228, 228));
 
-        jLabel1.setFont(new java.awt.Font("The munday free version", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel1.setText("MENU INICIO");
+        jlbMenuInicio.setFont(new java.awt.Font("The munday free version", 1, 24)); // NOI18N
+        jlbMenuInicio.setForeground(new java.awt.Color(0, 102, 204));
+        jlbMenuInicio.setText("MENU INICIO");
+        jlbMenuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jlbMenuInicioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jlbMenuInicioMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -78,14 +86,14 @@ public class VistaMenuInicio extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(32, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jlbMenuInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(118, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(jlbMenuInicio)
                 .addContainerGap(254, Short.MAX_VALUE))
         );
 
@@ -94,7 +102,6 @@ public class VistaMenuInicio extends javax.swing.JDialog {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setForeground(new java.awt.Color(0, 102, 255));
 
-        btn_salir.setBackground(new java.awt.Color(255, 255, 255));
         btn_salir.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
         btn_salir.setForeground(new java.awt.Color(0, 102, 255));
         btn_salir.setText("Salir");
@@ -113,7 +120,6 @@ public class VistaMenuInicio extends javax.swing.JDialog {
             }
         });
 
-        btn_agendar.setBackground(new java.awt.Color(255, 255, 255));
         btn_agendar.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
         btn_agendar.setForeground(new java.awt.Color(0, 102, 255));
         btn_agendar.setText("Agendar cita");
@@ -132,7 +138,6 @@ public class VistaMenuInicio extends javax.swing.JDialog {
             }
         });
 
-        btn_ver.setBackground(new java.awt.Color(255, 255, 255));
         btn_ver.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
         btn_ver.setForeground(new java.awt.Color(0, 102, 255));
         btn_ver.setText("Ver citas");
@@ -153,7 +158,6 @@ public class VistaMenuInicio extends javax.swing.JDialog {
 
         lbl_mensaje.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
 
-        btn_cerrar.setBackground(new java.awt.Color(255, 255, 255));
         btn_cerrar.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
         btn_cerrar.setForeground(new java.awt.Color(0, 102, 255));
         btn_cerrar.setText("Cerrar Sesion");
@@ -172,7 +176,6 @@ public class VistaMenuInicio extends javax.swing.JDialog {
             }
         });
 
-        btn_modificar.setBackground(new java.awt.Color(255, 255, 255));
         btn_modificar.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
         btn_modificar.setForeground(new java.awt.Color(0, 102, 255));
         btn_modificar.setText("Modificar Datos");
@@ -193,7 +196,6 @@ public class VistaMenuInicio extends javax.swing.JDialog {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Modelo/Assets/Inicio.jpeg"))); // NOI18N
 
-        btn_mascotas.setBackground(new java.awt.Color(255, 255, 255));
         btn_mascotas.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
         btn_mascotas.setForeground(new java.awt.Color(0, 102, 255));
         btn_mascotas.setText("Mis mascotas");
@@ -212,7 +214,6 @@ public class VistaMenuInicio extends javax.swing.JDialog {
             }
         });
 
-        btn_agregar.setBackground(new java.awt.Color(255, 255, 255));
         btn_agregar.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
         btn_agregar.setForeground(new java.awt.Color(0, 102, 255));
         btn_agregar.setText("Agregar mascota");
@@ -402,6 +403,16 @@ public class VistaMenuInicio extends javax.swing.JDialog {
 
     }//GEN-LAST:event_btn_agregarActionPerformed
 
+    private void jlbMenuInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbMenuInicioMouseEntered
+        // TODO add your handling code here:
+           jlbMenuInicio.setForeground(Color.PINK);
+    }//GEN-LAST:event_jlbMenuInicioMouseEntered
+
+    private void jlbMenuInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbMenuInicioMouseExited
+        // TODO add your handling code here:
+        jlbMenuInicio.setForeground(new Color(0, 153, 204));
+    }//GEN-LAST:event_jlbMenuInicioMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -479,11 +490,11 @@ public class VistaMenuInicio extends javax.swing.JDialog {
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_salir;
     private javax.swing.JButton btn_ver;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel jlbMenuInicio;
     private javax.swing.JLabel lbl_mensaje;
     // End of variables declaration//GEN-END:variables
 }

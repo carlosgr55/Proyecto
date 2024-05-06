@@ -54,7 +54,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace pref="32" max="32767" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="143" max="-2" attributes="0"/>
+                  <Component id="jlbMenuInicio" min="-2" pref="143" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -63,14 +63,14 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace pref="118" max="32767" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlbMenuInicio" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="254" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="jlbMenuInicio">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="The munday free version" size="24" style="1"/>
@@ -80,6 +80,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="MENU INICIO"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jlbMenuInicioMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jlbMenuInicioMouseExited"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -169,9 +173,6 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btn_salir">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="The munday free version" size="14" style="1"/>
             </Property>
@@ -193,9 +194,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_agendar">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="The munday free version" size="14" style="1"/>
             </Property>
@@ -217,9 +215,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_ver">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="The munday free version" size="14" style="1"/>
             </Property>
@@ -248,9 +243,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_cerrar">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="The munday free version" size="14" style="1"/>
             </Property>
@@ -272,9 +264,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_modificar">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="The munday free version" size="14" style="1"/>
             </Property>
@@ -303,9 +292,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_mascotas">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="The munday free version" size="14" style="1"/>
             </Property>
@@ -327,9 +313,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_agregar">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="The munday free version" size="14" style="1"/>
             </Property>

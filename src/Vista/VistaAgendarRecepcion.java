@@ -65,7 +65,7 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
         paneles1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneles1.setLayout(new java.awt.FlowLayout());
 
-        jLabel4.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("The munday free version", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 204));
         jLabel4.setText("AGENDAR CITA PARA CLIENTE");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -292,7 +292,7 @@ public class VistaAgendarRecepcion extends javax.swing.JDialog {
                 .addGroup(paneles3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_siguiente)
                     .addComponent(btn_atras))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(paneles3, java.awt.BorderLayout.CENTER);

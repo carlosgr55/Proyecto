@@ -87,7 +87,6 @@ public class VistaTablaCitasClientes extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabla_citas);
         tabla_citas.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        btn_regresar.setBackground(new java.awt.Color(255, 255, 255));
         btn_regresar.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
         btn_regresar.setForeground(new java.awt.Color(0, 102, 255));
         btn_regresar.setText("Regresar");
@@ -102,7 +101,6 @@ public class VistaTablaCitasClientes extends javax.swing.JFrame {
         TXT_TITTLE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TXT_TITTLE.setText("CITAS");
 
-        btn_eliminarCita.setBackground(new java.awt.Color(255, 255, 255));
         btn_eliminarCita.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
         btn_eliminarCita.setForeground(new java.awt.Color(0, 102, 255));
         btn_eliminarCita.setText("Eliminar Cita");
@@ -112,7 +110,6 @@ public class VistaTablaCitasClientes extends javax.swing.JFrame {
             }
         });
 
-        btn_modificar.setBackground(new java.awt.Color(255, 255, 255));
         btn_modificar.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
         btn_modificar.setForeground(new java.awt.Color(0, 102, 255));
         btn_modificar.setText("Modificar Cita");
@@ -145,15 +142,15 @@ public class VistaTablaCitasClientes extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(71, 71, 71)
                         .addComponent(btn_modificar)
                         .addGap(137, 137, 137)
                         .addComponent(btn_eliminarCita)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_regresar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(44, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
+                        .addComponent(btn_regresar)))
                 .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
@@ -164,8 +161,8 @@ public class VistaTablaCitasClientes extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(TXT_TITTLE)))
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_regresar)
