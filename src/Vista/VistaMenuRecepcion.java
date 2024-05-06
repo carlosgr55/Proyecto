@@ -8,6 +8,7 @@ import Controlador.ControladorMenuInicio;
 import Controlador.ControladorMenuRecepcion;
 import Controlador.ControladorModificarCliente;
 import Controlador.ControladorRegistrarMascota;
+import Controlador.ControladorVerCitasRecepcion;
 import Controlador.ControladorVerMascotas;
 import Excepciones.MascotaExcepcion;
 import Modelo.VO.Cliente;
@@ -52,9 +53,10 @@ public class VistaMenuRecepcion extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btn_registrarCliente = new javax.swing.JButton();
-        btn_agendarCita = new javax.swing.JButton();
+        btn_verCitas = new javax.swing.JButton();
         btn_salir = new javax.swing.JButton();
         btn_cerrar = new javax.swing.JButton();
+        btn_agendarCita1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -84,22 +86,22 @@ public class VistaMenuRecepcion extends javax.swing.JDialog {
             }
         });
 
-        btn_agendarCita.setBackground(new java.awt.Color(255, 255, 255));
-        btn_agendarCita.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
-        btn_agendarCita.setForeground(new java.awt.Color(0, 102, 255));
-        btn_agendarCita.setText("Agendar cita");
-        btn_agendarCita.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btn_agendarCita.addFocusListener(new java.awt.event.FocusAdapter() {
+        btn_verCitas.setBackground(new java.awt.Color(255, 255, 255));
+        btn_verCitas.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
+        btn_verCitas.setForeground(new java.awt.Color(0, 102, 255));
+        btn_verCitas.setText("Ver citas");
+        btn_verCitas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btn_verCitas.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                btn_agendarCitaFocusGained(evt);
+                btn_verCitasFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                btn_agendarCitaFocusLost(evt);
+                btn_verCitasFocusLost(evt);
             }
         });
-        btn_agendarCita.addActionListener(new java.awt.event.ActionListener() {
+        btn_verCitas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_agendarCitaActionPerformed(evt);
+                btn_verCitasActionPerformed(evt);
             }
         });
 
@@ -141,6 +143,25 @@ public class VistaMenuRecepcion extends javax.swing.JDialog {
             }
         });
 
+        btn_agendarCita1.setBackground(new java.awt.Color(255, 255, 255));
+        btn_agendarCita1.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
+        btn_agendarCita1.setForeground(new java.awt.Color(0, 102, 255));
+        btn_agendarCita1.setText("Agendar cita");
+        btn_agendarCita1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btn_agendarCita1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                btn_agendarCita1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                btn_agendarCita1FocusLost(evt);
+            }
+        });
+        btn_agendarCita1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agendarCita1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -150,8 +171,9 @@ public class VistaMenuRecepcion extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btn_agendarCita, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_registrarCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btn_verCitas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_registrarCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_agendarCita1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(29, 29, 29))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
@@ -167,9 +189,11 @@ public class VistaMenuRecepcion extends javax.swing.JDialog {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_registrarCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_agendarCita)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_agendarCita1)
+                .addGap(18, 18, 18)
+                .addComponent(btn_verCitas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_salir)
                     .addComponent(btn_cerrar)))
@@ -241,18 +265,30 @@ public class VistaMenuRecepcion extends javax.swing.JDialog {
         ControladorCrearCuenta.mostrarVentana(true);
     }//GEN-LAST:event_btn_registrarClienteActionPerformed
 
-    private void btn_agendarCitaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_agendarCitaFocusGained
+    private void btn_verCitasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_verCitasFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_agendarCitaFocusGained
+    }//GEN-LAST:event_btn_verCitasFocusGained
 
-    private void btn_agendarCitaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_agendarCitaFocusLost
+    private void btn_verCitasFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_verCitasFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_agendarCitaFocusLost
+    }//GEN-LAST:event_btn_verCitasFocusLost
 
-    private void btn_agendarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agendarCitaActionPerformed
+    private void btn_verCitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_verCitasActionPerformed
         // TODO add your handling code here:
-        ControladorMenuRecepcion.agendarCitaRec();
-    }//GEN-LAST:event_btn_agendarCitaActionPerformed
+        ControladorVerCitasRecepcion.mostrarVentana();
+    }//GEN-LAST:event_btn_verCitasActionPerformed
+
+    private void btn_agendarCita1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_agendarCita1FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_agendarCita1FocusGained
+
+    private void btn_agendarCita1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btn_agendarCita1FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_agendarCita1FocusLost
+
+    private void btn_agendarCita1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agendarCita1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_agendarCita1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -305,10 +341,11 @@ public class VistaMenuRecepcion extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_agendarCita;
+    private javax.swing.JButton btn_agendarCita1;
     private javax.swing.JButton btn_cerrar;
     private javax.swing.JButton btn_registrarCliente;
     private javax.swing.JButton btn_salir;
+    private javax.swing.JButton btn_verCitas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
