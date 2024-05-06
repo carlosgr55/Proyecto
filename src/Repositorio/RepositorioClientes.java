@@ -9,7 +9,7 @@ public class RepositorioClientes {
     private ArrayList<Cliente> listaClientes = new ArrayList<>();
 
     public RepositorioClientes() {
-        cargarClientes();
+        this.cargarClientes();
     }
 
     public ArrayList<Cliente> getLista() {
