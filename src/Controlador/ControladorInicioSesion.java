@@ -35,7 +35,7 @@ public class ControladorInicioSesion {
             mensaje("El cliente existe");
             Cliente cliente = dao.returnCliente(user);
             accesar(user, password, cliente);
-            ControladorVeterinarios.mostrarVentana(true);
+            ControladorMenuInicio.mostraVentana();
         }
         else{
             mensaje("Nombre de usuario no encontrado");

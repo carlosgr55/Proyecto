@@ -33,7 +33,7 @@ public class ControladorVeterinarios {
 
     public static void mostrarVentana(boolean mostrar) {
         vistaCitas = new VistaTablaCitasClientes(); //Es necesario crear el objeto cuando se muestra la ventana para poder crear el filtro
-        vistaCitas.setVisible(mostrar);
+        veter.setVisible(mostrar);
 
     }
 

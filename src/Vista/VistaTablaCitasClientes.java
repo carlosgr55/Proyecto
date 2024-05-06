@@ -34,7 +34,6 @@ public class VistaTablaCitasClientes extends javax.swing.JFrame {
         initComponents();
         iniciarTabla();
         filtrar();
-        System.out.println("el usuario acutal es "+cliente.toString());
     }
 
     private void iniciarTabla(){

@@ -6,7 +6,8 @@ import Repositorio.RepositorioClientes;
 public class app {
 
     public static void main(String[] args) {
-        ControladorInicioSesion.mostrarVentana();
+        //ControladorInicioSesion.mostrarVentana();
         //ControladorMenuRecepcion.mostrarVentana();
+        ControladorVeterinarios.mostrarVentana(true);
     }
 }
