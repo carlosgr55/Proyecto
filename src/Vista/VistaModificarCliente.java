@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import Controlador.ControladorMenuInicio;
 import Controlador.ControladorModificarCliente;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -141,6 +142,11 @@ public class VistaModificarCliente extends javax.swing.JDialog {
         btn_regresar.setForeground(new java.awt.Color(0, 102, 255));
         btn_regresar.setText("Regresar");
         btn_regresar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btn_regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresarActionPerformed(evt);
+            }
+        });
 
         btn_eliminar.setBackground(new java.awt.Color(255, 255, 255));
         btn_eliminar.setFont(new java.awt.Font("The munday free version", 1, 14)); // NOI18N
@@ -323,6 +329,13 @@ public class VistaModificarCliente extends javax.swing.JDialog {
         // TODO add your handling code here:
         ControladorModificarCliente.eliminarCuenta();
     }//GEN-LAST:event_btn_eliminarActionPerformed
+
+    private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+        ControladorMenuInicio.mostraVentana();
+    }//GEN-LAST:event_btn_regresarActionPerformed
 
     /**
      * @param args the command line arguments
