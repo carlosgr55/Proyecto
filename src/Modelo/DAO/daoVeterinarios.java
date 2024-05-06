@@ -14,22 +14,38 @@ public class daoVeterinarios {
         return repositorio.getLista();
     }
 
-    
-    public void quitarHoras(LocalDateTime hora, Veterinario vet){
+    public void addVet(Veterinario nuevoVet) {
+        repositorio.getLista().add(nuevoVet);
+    }
+
+    public void quitarHoras(LocalDateTime hora, Veterinario vet) {
         repositorio.quitarHora(hora, vet);
     }
-    
-    public ArrayList<LocalDateTime> getHorario(Veterinario vet){
+
+    public ArrayList<LocalDateTime> getHorario(Veterinario vet) {
         return vet.getDisponibilidad();
     }
-    
-    public ArrayList<String> getEspecialidad(Veterinario vet){
+
+    public ArrayList<String> getEspecialidad(Veterinario vet) {
         return vet.getEspecialidad();
     }
-    
-    public void setLista(ArrayList<Veterinario> lista){
+
+    public void setLista(ArrayList<Veterinario> lista) {
         repositorio.setLista(lista);
     }
-    
 
+    public void eliminarVet(String user) {
+        repositorio.eliminarVet(user);
+    }
+
+    public Veterinario getVeterinario(String name){
+        Veterinario veterinario = null;
+        for(Veterinario vet : repositorio.getLista()){
+            if(vet.getUsuario().equals(name)){
+                veterinario = vet;
+            }
+        }
+        return null;
+    }
+    
 }

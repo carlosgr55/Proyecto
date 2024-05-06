@@ -2,6 +2,7 @@ package Controlador;
 
 import static Controlador.ControladorVerMascotas.listaMascota;
 import static Controlador.ControladorVerMascotas.vistaMascota;
+import Modelo.Componentes.FechaIsNull;
 import Modelo.DAO.daoVeterinarios;
 import Modelo.Logica.LogicaVeterinario;
 import Modelo.VO.Cita;
@@ -11,6 +12,8 @@ import Modelo.VO.Veterinario;
 import Vista.VistaAgendarCita;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.plaf.metal.MetalIconFactory;
 
 public class ControladorAgendarCita {
@@ -129,7 +132,7 @@ public class ControladorAgendarCita {
         return especialidad;
     }
 
-    public static Cita crearCita() {
+    public static Cita crearCita() throws FechaIsNull {
         Cita cita;
         String id = ""; //Para actualizar
         Veterinario vet = getVeterinario();
@@ -141,6 +144,7 @@ public class ControladorAgendarCita {
         daoVet.quitarHoras(fecha, vet);
         logicaVeterinario.setDaoVet(daoVet);
         return cita;
+
     }
 
     public static void quitarHoras(Cita cita) {

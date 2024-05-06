@@ -1,23 +1,27 @@
 package Controlador;
 
-import Excepciones.ClienteNoExistente;
 import Excepciones.DatosIncompletosException;
 import Modelo.DAO.daoClientes;
-import Modelo.Logica.LogicaCampos;
 import Modelo.Logica.LogicaClientes;
 import Modelo.VO.Cliente;
 import Vista.VistaCrearCuenta;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class ControladorCrearCuenta {
 
-    static VistaCrearCuenta vistaCrear = new VistaCrearCuenta();
+    static VistaCrearCuenta vistaCrear;
     static daoClientes dao = new daoClientes();
     static LogicaClientes logica = new LogicaClientes();
+    public static boolean esRecepcion = false;
 
     public static void mostrarVentana() {
+        vistaCrear = new VistaCrearCuenta();
+        vistaCrear.setVisible(true);
+    }
+    public static void mostrarVentana(boolean recep) {
+        esRecepcion = recep;
+        vistaCrear = new VistaCrearCuenta();
         vistaCrear.setVisible(true);
     }
 
@@ -33,19 +37,9 @@ public class ControladorCrearCuenta {
         String celular = vistaCrear.getTxt_celular().getText();
         String usuario = vistaCrear.getTxt_usuario().getText();
         String password = vistaCrear.getTxt_password().getText();
+
         Cliente cliente = new Cliente(usuario, password, nombre, apellido, celular, correo);
         return cliente;
-    }
-
-    public static boolean camposLlenos() {
-        boolean a = vistaCrear.getTxt_apellido().getText().equals("");
-        boolean b = vistaCrear.getTxt_nombre().getText().equals("");
-        boolean c = vistaCrear.getTxt_correo().getText().equals("");
-        boolean d = vistaCrear.getTxt_usuario().getText().equals("");
-        boolean e = vistaCrear.getTxt_password().getText().equals("");
-        boolean f = vistaCrear.getTxt_celular().getText().equals("");
-        return (a && b && c && d && e && f);
-
     }
 
     public static boolean validarNumero() {
@@ -59,21 +53,31 @@ public class ControladorCrearCuenta {
 
     public static boolean addCliente(Cliente cliente) {
         boolean creado = false;
-        boolean existe;
-        try {
-            existe = logica.clienteExiste(cliente);
-            if (!existe) {
-                creado = true;
-                dao.addCliente(cliente);
-                ControladorInicioSesion.getDao().addCliente(cliente);
-            }
-        } catch (ClienteNoExistente ex) {
-            JOptionPane.showMessageDialog(vistaCrear, "Nombre de usuario existente");
+        boolean existe = logica.clienteExiste(cliente);
+        if (!existe) {
+            creado = true;
+            dao.addCliente(cliente);
+            ControladorInicioSesion.getDao().addCliente(cliente);
         }
         return creado;
+    }
+
+    public static void puedeUsarse(String txt) {
+        if (!logica.usuarioDisp(txt)) {
+            vistaCrear.getLb_usAux().setVisible(true);
+            vistaCrear.getLb_usAux().setText("Nombre de usuario disponible");
+            vistaCrear.getLb_usAux().setForeground(Color.GREEN);
+            vistaCrear.getBtn_crear().setEnabled(true);
+        } else {
+            vistaCrear.getLb_usAux().setVisible(true);
+            vistaCrear.getLb_usAux().setText("Nombre de usuario NO disponible");
+            vistaCrear.getLb_usAux().setForeground(Color.RED);
+            vistaCrear.getBtn_crear().setEnabled(false);
+        }
     }
 
     public static void mostrarClientes() {
         dao.mostrarClientes();
     }
+
 }

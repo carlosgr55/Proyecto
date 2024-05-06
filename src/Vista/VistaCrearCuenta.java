@@ -3,9 +3,13 @@ package Vista;
 import Controlador.ControladorCrearCuenta;
 import Controlador.ControladorInicioSesion;
 import Controlador.ControladorRegistrarMascota;
+import Excepciones.ClientesExcepciones;
 import Modelo.VO.Cliente;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -30,6 +34,8 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
     public VistaCrearCuenta() {
         super();
         initComponents();
+        lb_usAux.setVisible(false);
+            btn_siguiente.setEnabled(false);
     }
 
     /**
@@ -61,6 +67,7 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         txt_usuario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        lb_usAux = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -226,8 +233,17 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
                 txt_usuarioActionPerformed(evt);
             }
         });
+        txt_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_usuarioKeyReleased(evt);
+            }
+        });
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Modelo/Assets/Cuenta_Img.jpeg"))); // NOI18N
+
+        lb_usAux.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        lb_usAux.setForeground(new java.awt.Color(0, 153, 204));
+        lb_usAux.setText("Usuario disp");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -235,7 +251,8 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(41, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2)
@@ -246,20 +263,21 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
                             .addComponent(txt_celular))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel5)
-                            .addComponent(txt_password)
-                            .addComponent(txt_correo)))
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lb_usAux, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txt_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel9)
+                                .addComponent(jLabel5)
+                                .addComponent(txt_password)
+                                .addComponent(txt_correo)))))
                 .addGap(0, 60, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel9))
@@ -275,7 +293,9 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lb_usAux)
+                .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
@@ -283,7 +303,7 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_celular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -297,7 +317,6 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_celularActionPerformed
 
     private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
-        // TODO add your handling code here:
 
         Cliente nuevo = ControladorCrearCuenta.crearCliente();
         if (ControladorCrearCuenta.addCliente(nuevo)) {
@@ -313,6 +332,7 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
             ControladorRegistrarMascota.setCliente(nuevo);
             this.dispose();
         }
+
     }//GEN-LAST:event_btn_siguienteActionPerformed
 
     private void txt_correoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_correoActionPerformed
@@ -417,6 +437,11 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_apellidoActionPerformed
 
+    private void txt_usuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usuarioKeyReleased
+        // TODO add your handling code here:
+        ControladorCrearCuenta.puedeUsarse(txt_usuario.getText());
+    }//GEN-LAST:event_txt_usuarioKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -471,6 +496,16 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
     public void setTxt_usuario(JTextField txt_usuario) {
         this.txt_usuario = txt_usuario;
     }
+
+    public JLabel getLb_usAux() {
+        return lb_usAux;
+    }
+
+    public void setLb_usAux(JLabel lb_usAux) {
+        this.lb_usAux = lb_usAux;
+    }
+    
+    
 
     public void setBtn_crear(JButton btn_crear) {
         this.btn_siguiente = btn_crear;
@@ -539,6 +574,7 @@ public class VistaCrearCuenta extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lb_usAux;
     private javax.swing.JPanel panel_btns;
     private javax.swing.JTextField txt_apellido;
     private javax.swing.JTextField txt_celular;

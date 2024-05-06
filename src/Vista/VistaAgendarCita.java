@@ -4,12 +4,16 @@ import Controlador.ControladorAgendarCita;
 import Controlador.ControladorDetalleCita;
 import Controlador.ControladorMenuInicio;
 import Fecha.Fecha;
+import Modelo.Componentes.FechaIsNull;
 import Modelo.Componentes.SelecFecha;
 import Modelo.VO.Cita;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
@@ -263,12 +267,16 @@ public class VistaAgendarCita extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
-        // TODO add your handling code here:
-        Cita cita = ControladorAgendarCita.crearCita();
-        this.setVisible(false);
-        ControladorDetalleCita.mostrarVentana();
-        ControladorDetalleCita.mostrarDatos(cita);
-        new ControladorDetalleCita(cita);
+        try {
+            // TODO add your handling code here:
+            Cita cita = ControladorAgendarCita.crearCita();
+            this.setVisible(false);
+            ControladorDetalleCita.mostrarVentana();
+            ControladorDetalleCita.mostrarDatos(cita);
+            new ControladorDetalleCita(cita);
+        } catch (FechaIsNull ex) {
+            JOptionPane.showMessageDialog(this, "Se debe de selecciionar una fecha");
+        }
     }//GEN-LAST:event_btn_siguienteActionPerformed
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed

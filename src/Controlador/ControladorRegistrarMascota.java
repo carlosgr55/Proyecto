@@ -3,13 +3,16 @@ package Controlador;
 import Modelo.VO.Cliente;
 import Modelo.VO.Mascota;
 import Vista.VistaRegistrarMascota;
+import java.awt.Menu;
 
 public class ControladorRegistrarMascota {
 
-    static VistaRegistrarMascota vistaRegistro = new VistaRegistrarMascota();
+    static VistaRegistrarMascota vistaRegistro;
     static Cliente cliente;
+    static boolean esRecepcion = ControladorCrearCuenta.esRecepcion;
 
     public static void mostrarVentana() {
+        vistaRegistro = new VistaRegistrarMascota();
         vistaRegistro.setVisible(true);
     }
 
@@ -22,10 +25,19 @@ public class ControladorRegistrarMascota {
     }
 
     public static void registrar() {
-        cliente.addMascota(crearMascota());
-        vistaRegistro.setVisible(false);
-        ControladorInicioSesion.mostrarVentana();
-        vistaRegistro.dispose();
+        if (!esRecepcion) {
+            cliente.addMascota(crearMascota());
+            vistaRegistro.setVisible(false);
+            vistaRegistro.dispose();
+            ControladorInicioSesion.mostrarVentana();
+
+        } else {
+            cliente.addMascota(crearMascota());
+            vistaRegistro.setVisible(false);
+            ControladorMenuRecepcion.mostrarVentana();
+            vistaRegistro.dispose();
+        }
+
     }
 
     public static Mascota crearMascota() {
@@ -36,6 +48,7 @@ public class ControladorRegistrarMascota {
         return mascota;
 
     }
+
     public static String getEspecie() {
         return (String) vistaRegistro.getCombo_especie().getSelectedItem();
     }
