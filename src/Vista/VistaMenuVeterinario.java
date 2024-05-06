@@ -7,7 +7,7 @@ package Vista;
 import Controlador.ControladorCrearCuenta;
 import Controlador.ControladorMenuInicio;
 import Controlador.ControladorVerCitas;
-import Controlador.ControladorVeterinarios;
+import Controlador.ControladorMenuVet;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -17,12 +17,12 @@ import javax.swing.JButton;
  *
  * @author danii
  */
-public class VistaVeterinarios extends javax.swing.JFrame {
+public class VistaMenuVeterinario extends javax.swing.JFrame {
 
     /**
      * Creates new form VistaVeterinarios
      */
-    public VistaVeterinarios() {
+    public VistaMenuVeterinario() {
         initComponents();
          btn_verCita.setIcon(setIcono("/Modelo/Assets/cita.jpeg", btn_verCita));
            btn_verCita.setIcon(setIconoPresionado("/Modelo/Assets/cita.jpeg", btn_verCita, 20, 20));
@@ -165,12 +165,12 @@ public class VistaVeterinarios extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-           ControladorVeterinarios.regresar();
+           ControladorMenuVet.regresar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_verCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_verCitaActionPerformed
         // TODO add your handling code here:
-           ControladorVeterinarios.verCitas();
+           ControladorMenuVet.verCitas();
         
     }//GEN-LAST:event_btn_verCitaActionPerformed
 
@@ -199,20 +199,21 @@ public class VistaVeterinarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaVeterinarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaMenuVeterinario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaVeterinarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaMenuVeterinario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaVeterinarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaMenuVeterinario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaVeterinarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaMenuVeterinario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaVeterinarios().setVisible(true);
+                new VistaMenuVeterinario().setVisible(true);
             }
         });
     }

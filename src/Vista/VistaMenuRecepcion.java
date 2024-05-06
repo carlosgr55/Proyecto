@@ -288,6 +288,7 @@ public class VistaMenuRecepcion extends javax.swing.JDialog {
 
     private void btn_agendarCita1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agendarCita1ActionPerformed
         // TODO add your handling code here:
+        ControladorMenuRecepcion.agendarCitaRec();
     }//GEN-LAST:event_btn_agendarCita1ActionPerformed
 
     /**

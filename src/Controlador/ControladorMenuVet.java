@@ -13,7 +13,7 @@ import Modelo.VO.Cita;
 import Modelo.VO.Cliente;
 import Modelo.VO.Veterinario;
 import Vista.VistaTablaCitasClientes;
-import Vista.VistaVeterinarios;
+import Vista.VistaMenuVeterinario;
 import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -25,14 +25,13 @@ import javax.swing.table.TableRowSorter;
  *
  * @author danii
  */
-public class ControladorVeterinarios {
+public class ControladorMenuVet {
 
     private static VistaTablaCitasClientes vistaCitas;
-    static VistaVeterinarios veter = new VistaVeterinarios();
+    static VistaMenuVeterinario veter = new VistaMenuVeterinario();
     private static daoCitas dao = ControladorDetalleCita.getDaocitas();
 
     public static void mostrarVentana(boolean mostrar) {
-        vistaCitas = new VistaTablaCitasClientes(); //Es necesario crear el objeto cuando se muestra la ventana para poder crear el filtro
         veter.setVisible(mostrar);
 
     }
@@ -44,7 +43,8 @@ public class ControladorVeterinarios {
 
     public static void regresar() {
         veter.setVisible(false);
-        ControladorInicioSesion.mostrarVentana();
+        ControladorInicioPersonal.mostrarVentana();
+        veter.dispose();
     }
 
     public static Cita getCitaTabla(int fila, JTable tabla) {

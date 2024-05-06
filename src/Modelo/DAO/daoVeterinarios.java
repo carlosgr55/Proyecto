@@ -10,6 +10,11 @@ public class daoVeterinarios {
     private RepositorioVeterinarios repositorio = new RepositorioVeterinarios();
     private ArrayList<Veterinario> listaVet = repositorio.getLista();
 
+    
+    public Veterinario returnVet(String user){
+        return this.repositorio.returnVet(user);
+    }
+    
     public ArrayList<Veterinario> getListaVet() {
         return repositorio.getLista();
     }
@@ -46,6 +51,10 @@ public class daoVeterinarios {
             }
         }
         return null;
+    }
+    
+    public boolean contains(String user){
+        return this.repositorio.contains(user);
     }
     
 }

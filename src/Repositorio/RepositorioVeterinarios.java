@@ -44,8 +44,8 @@ public class RepositorioVeterinarios {
     }
 
     public void cargarDatos() {
-        lista.add(new Veterinario("CEDULA1", 34880, "BEYONCE", "RENAISSANCE", "Beyonce", "Knowles-Carter", "65654654", "564654"));
-        lista.add(new Veterinario("CEDULA2", 34880, "PhoebeBridgers", "ScottStreet", "Phoebe", "Bridgers", "65654654", "564654"));
+        lista.add(new Veterinario("CEDULA1", 34880, "BEYONCE", "Carter", "Beyonce", "Knowles-Carter", "65654654", "564654"));
+        lista.add(new Veterinario("CEDULA2", 34880, "Phoebe", "Moon", "Phoebe", "Bridgers", "65654654", "564654"));
         lista.add(new Veterinario("CEDULA3", 34880, "Kali", "Orquideas", "Kali", "Uchis", "65654654", "564654"));
         lista.add(new Veterinario("CEDULA4", 34880, "Arca", "kick", "Arca", "", "65654654", "564654"));
     }
@@ -57,6 +57,16 @@ public class RepositorioVeterinarios {
     public Veterinario crearVet() {
         //POR EDITAR
         return null;
+    }
+
+    public Veterinario returnVet(String user) {
+        Veterinario vet = null;
+        for (Veterinario veterinario : lista) {
+            if (veterinario.getUsuario().equals(user)) {
+                vet = veterinario;
+            }
+        }
+        return vet;
     }
 
     public void setLista(ArrayList<Veterinario> lista) {
@@ -75,6 +85,16 @@ public class RepositorioVeterinarios {
 
     public void addEspecialidad(int index, String especialidad) {
         lista.get(index).addEspecialidad(especialidad);
+    }
+
+    public boolean contains(String user) {
+        boolean existe = false;
+        for (Veterinario veterinario : lista) {
+            if (veterinario.getUsuario().equals(user)) {
+                existe = true;
+            }
+        }
+        return existe;
     }
 
     public boolean existe(Veterinario vet) {
