@@ -13,18 +13,18 @@ import javax.swing.JTextField;
  *
  * @author pesca
  */
-public class VistaMenuAdmi extends javax.swing.JDialog {
+public class VistaDatosVeterinario extends javax.swing.JDialog {
 //private JComboBox<Veterinario> cbxVeterinarios;
 
     /**
      * Creates new form VistaMenuAdmi
      */
-    public VistaMenuAdmi(java.awt.Frame parent, boolean modal) {
+    public VistaDatosVeterinario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
 
-    public VistaMenuAdmi() {
+    public VistaDatosVeterinario() {
         super();
         initComponents();
 
@@ -355,7 +355,7 @@ public class VistaMenuAdmi extends javax.swing.JDialog {
 
     private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
         // TODO add your handling code here:
-        String nombre = txt_nombre.getText();
+        /*String nombre = txt_nombre.getText();
         String apellido = txt_apellido.getText();
         String telefono = txt_telefono.getText();
         int edad = Integer.parseInt(txt_edad.getText());
@@ -366,19 +366,19 @@ public class VistaMenuAdmi extends javax.swing.JDialog {
         double sueldo = Double.parseDouble(txt_sueldo.getText());
 
         Veterinario nuevoVeterinario = new Veterinario(cedula, sueldo, usuario, password, nombre, apellido, telefono, correo);
-        ControladorMenuAdmi.agregarVeterinario(nuevoVeterinario);
+        ControladorMenuAdmi.agregarVeterinario(nuevoVeterinario);*/
     }//GEN-LAST:event_btn_agregarActionPerformed
 
     private void cbxVeterinariosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxVeterinariosItemStateChanged
         // TODO add your handling code here:
-        ControladorMenuAdmi.mostrarDatosVeterinarioSeleccionado();
+        //ControladorMenuAdmi.mostrarDatosVeterinarioSeleccionado();
 
     }//GEN-LAST:event_cbxVeterinariosItemStateChanged
 
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
         // TODO add your handling code here:
         String nombreVeterinario = (String) cbxVeterinarios.getSelectedItem();
-        ControladorMenuAdmi.eliminarVeterinario(nombreVeterinario);
+       // ControladorMenuAdmi.eliminarVeterinario(nombreVeterinario);
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
     private void txt_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuarioActionPerformed
@@ -486,21 +486,23 @@ public class VistaMenuAdmi extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaMenuAdmi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaDatosVeterinario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaMenuAdmi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaDatosVeterinario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaMenuAdmi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaDatosVeterinario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaMenuAdmi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaDatosVeterinario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                VistaMenuAdmi dialog = new VistaMenuAdmi(new javax.swing.JFrame(), true);
+                VistaDatosVeterinario dialog = new VistaDatosVeterinario(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
